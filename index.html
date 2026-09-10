@@ -5,44 +5,74 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Expansão da Consciência - Livro Espírita</title>
 <style>
-:root{--primary:#4a2c6b;--secondary:#6b4a8a;--bg:#fdfbf7;--text:#333;--quote:#555;--border:#ddd6c6;--accent:#2c5aa0;--shadow:0 2px 8px rgba(0,0,0,.1)}
-*{box-sizing:border-box}
-body{margin:0;font-family:Georgia,serif;background:var(--bg);color:var(--text);line-height:1.75}
-header{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);z-index:1000}
-header h1{font-size:1.15rem;margin:0;max-width:70%;line-height:1.25}
-#menuBtn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.5rem .9rem;border-radius:6px;cursor:pointer;font-size:.9rem}
-#menuBtn:hover{background:rgba(255,255,255,.3)}
-nav{position:fixed;top:0;left:0;bottom:0;width:280px;background:#fff;border-right:1px solid var(--border);transform:translateX(-100%);transition:transform .3s;overflow-y:auto;z-index:1100;box-shadow:var(--shadow)}
-nav.open{transform:translateX(0)}
-nav h2{font-size:1rem;color:var(--primary);padding:1rem 1rem .5rem;margin:0;border-bottom:1px solid var(--border)}
-nav a{display:block;padding:.7rem 1rem;color:var(--text);text-decoration:none;border-bottom:1px solid #f0f0f0;font-size:.95rem}
-nav a:hover{background:#f7f2ff;color:var(--primary)}
-nav .close{background:var(--primary);color:#fff;text-align:center;padding:.8rem;font-weight:700;cursor:pointer}
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;z-index:1050}
-#overlay.show{display:block}
-main{max-width:760px;margin:5rem auto 3rem;padding:1.5rem;background:#fff;border-radius:8px;box-shadow:var(--shadow)}
-main h1{color:var(--primary);font-size:2rem;text-align:center;margin-bottom:.5rem}
-main h2{color:var(--primary);font-size:1.6rem;margin-top:2rem;border-bottom:2px solid var(--border);padding-bottom:.4rem}
-main h3{color:var(--secondary);font-size:1.25rem;margin-top:1.5rem}
-p{margin:1rem 0;text-align:justify}
-blockquote{font-style:italic;color:var(--quote);border-left:4px solid var(--secondary);margin:1.2rem 0;padding:.5rem 1rem;background:#f9f5ff}
-ul,ol{margin:1rem 0;padding-left:1.5rem}
-li{margin:.4rem 0}
-.cover{text-align:center;margin-bottom:2rem}
-.cover img{max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow)}
-.center{text-align:center}
+body{font-family:Georgia,serif;background:#fdfbf7;color:#333;line-height:1.75;margin:0;padding:0}
+header{background:linear-gradient(135deg,#4a2c6b,#6b4a8a);color:#fff;padding:1.5rem;text-align:center}
+header h1{margin:0;font-size:1.8rem}
+header p{margin:.5rem 0 0;opacity:.9}
+main{max-width:760px;margin:2rem auto;padding:1.5rem;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .downloads{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:2rem 0}
-.downloads a{background:var(--primary);color:#fff;padding:.7rem 1.2rem;border-radius:6px;text-decoration:none;font-size:.95rem}
-.downloads a:hover{background:var(--secondary)}
-.back-cover{background:#f7f2ff;padding:1.5rem;border-radius:8px;margin-top:2rem}
-.index-list{column-count:2;column-gap:2rem;margin:1.5rem 0}
-.index-list li{break-inside:avoid}
-footer{text-align:center;color:#777;font-size:.85rem;margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid var(--border)}
-@media(max-width:600px){main{margin-top:4.5rem;padding:1rem}main h1{font-size:1.6rem}main h2{font-size:1.3rem}.index-list{column-count:1}}
+.downloads a{background:#4a2c6b;color:#fff;padding:.7rem 1.5rem;border-radius:6px;text-decoration:none;font-size:1rem}
+.downloads a:hover{background:#6b4a8a}
+.cover{text-align:center;margin-bottom:2rem}
+.cover img{max-width:300px;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+h2{color:#4a2c6b;border-bottom:2px solid #ddd6c6;padding-bottom:.4rem;margin-top:2rem}
+blockquote{font-style:italic;color:#555;border-left:4px solid #6b4a8a;margin:1.2rem 0;padding:.5rem 1rem;background:#f9f5ff}
+footer{text-align:center;color:#777;font-size:.85rem;margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid #ddd6c6}
+@media(max-width:600px){main{margin:1rem;padding:1rem}header h1{font-size:1.4rem}}
 </style>
 </head>
 <body>
 <header>
 <h1>A Expansão da Consciência</h1>
-<button id="menuBtn" onclick="toggleMenu()">☰ Capítulos</button>
+<p>Um Guia Espírita para a Cura, o Autoconhecimento e a Libertação do Espírito</p>
 </header>
+<main>
+<div class="cover">
+<img src="capa-livro-espirita[1].png" alt="Capa do Livro A Expansão da Consciência">
+</div>
+<div class="downloads">
+<a href="A-Expansao-da-Consciencia-Livro-Espirita[1].pdf" download>📥 Baixar PDF</a>
+<a href="A-Expansao-da-Consciencia-Livro-Espirita[1].epub" download>📥 Baixar EPUB</a>
+</div>
+<h2>Sobre o Livro</h2>
+<p>Este livro nasceu da vontade de compreender, de uma forma simples e acessível, como o ser humano pode expandir sua consciência e se aproximar do mundo espiritual.</p>
+<p>Inspirado no documento <strong>CIA-RDP96-00788R001700210016-5</strong> (Analysis and Assessment of Gateway Process), adaptado à luz da Doutrina Espírita.</p>
+<blockquote>"Fora da caridade não há salvação." — Espíritos Superiores</blockquote>
+<h2>Sumário</h2>
+<ol>
+<li>Apresentação</li>
+<li>O Que É a Consciência?</li>
+<li>O Corpo Físico e o Corpo Espiritual</li>
+<li>A Reencarnação e a Jornada da Alma</li>
+<li>Allan Kardec e a Codificação Espírita</li>
+<li>O Brasil, Pátria do Evangelho</li>
+<li>A Sincronização dos Hemisférios Cerebrais</li>
+<li>Hipnose e o Desbloqueio da Alma</li>
+<li>Meditação, Oração e Elevação Espiritual</li>
+<li>O Desdobramento e a Saída do Corpo</li>
+<li>Sonhos e Suas Mensagens</li>
+<li>A Cura pelas Mãos do Espírito</li>
+<li>O Passe e o Tratamento Espiritual</li>
+<li>A Obsessão e o Desobsessão</li>
+<li>O Tempo e o Espaço na Visão Espírita</li>
+<li>A Lei de Causa e Efeito</li>
+<li>O Perdão como Libertação</li>
+<li>A Mediunidade e os Dons do Espírito</li>
+<li>Robson Pinheiro e o Desdobramento Espiritual</li>
+<li>Osmar Barbosa e a Colônia Espiritual</li>
+<li>Chico Xavier, o Apóstolo da Caridade</li>
+<li>Divaldo Pereira Franco</li>
+<li>Joanna de Ângelis</li>
+<li>A Cidade dos Espíritos</li>
+<li>O Umbral e o Trabalho da Luz</li>
+<li>Como Aplicar no Dia a Dia</li>
+<li>Orações e Exercícios Práticos</li>
+<li>A Missão do Brasil na Nova Era</li>
+<li>Conclusão</li>
+</ol>
+</main>
+<footer>
+<p>Adaptação espírita e simplificada para o estudo da alma · Inspirado no Projeto Gateway CIA</p>
+</footer>
+</body>
+</html>
