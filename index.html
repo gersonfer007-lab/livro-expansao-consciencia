@@ -1,113 +1,530 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Expansão da Consciência - Livro Espírita</title>
-<style>
-:root{--primary:#4a2c6b;--secondary:#6b4a8a;--bg:#fdfbf7;--text:#333;--quote:#555;--border:#ddd6c6;--accent:#2c5aa0;--shadow:0 2px 8px rgba(0,0,0,.1)}
-*{box-sizing:border-box}
-body{margin:0;font-family:Georgia,serif;background:var(--bg);color:var(--text);line-height:1.75}
-header{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);z-index:1000}
-header h1{font-size:1.15rem;margin:0;max-width:70%;line-height:1.25}
-#menuBtn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.5rem .9rem;border-radius:6px;cursor:pointer;font-size:.9rem}
-#menuBtn:hover{background:rgba(255,255,255,.3)}
-nav{position:fixed;top:0;left:0;bottom:0;width:280px;background:#fff;border-right:1px solid var(--border);transform:translateX(-100%);transition:transform .3s;overflow-y:auto;z-index:1100;box-shadow:var(--shadow)}
-nav.open{transform:translateX(0)}
-nav h2{font-size:1rem;color:var(--primary);padding:1rem 1rem .5rem;margin:0;border-bottom:1px solid var(--border)}
-nav a{display:block;padding:.7rem 1rem;color:var(--text);text-decoration:none;border-bottom:1px solid #f0f0f0;font-size:.95rem}
-nav a:hover{background:#f7f2ff;color:var(--primary)}
-nav .close{background:var(--primary);color:#fff;text-align:center;padding:.8rem;font-weight:700;cursor:pointer}
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;z-index:1050}
-#overlay.show{display:block}
-main{max-width:760px;margin:5rem auto 3rem;padding:1.5rem;background:#fff;border-radius:8px;box-shadow:var(--shadow)}
-main h1{color:var(--primary);font-size:2rem;text-align:center;margin-bottom:.5rem}
-main h2{color:var(--primary);font-size:1.6rem;margin-top:2rem;border-bottom:2px solid var(--border);padding-bottom:.4rem}
-main h3{color:var(--secondary);font-size:1.25rem;margin-top:1.5rem}
-p{margin:1rem 0;text-align:justify}
-blockquote{font-style:italic;color:var(--quote);border-left:4px solid var(--secondary);margin:1.2rem 0;padding:.5rem 1rem;background:#f9f5ff}
-ul,ol{margin:1rem 0;padding-left:1.5rem}
-li{margin:.4rem 0}
-.cover{text-align:center;margin-bottom:2rem}
-.cover img{max-width:100%;height:auto;border-radius:8px;box-shadow:var(--shadow)}
-.center{text-align:center}
-.downloads{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:2rem 0}
-.downloads a{background:var(--primary);color:#fff;padding:.7rem 1.2rem;border-radius:6px;text-decoration:none;font-size:.95rem}
-.downloads a:hover{background:var(--secondary)}
-.back-cover{background:#f7f2ff;padding:1.5rem;border-radius:8px;margin-top:2rem}
-.index-list{column-count:2;column-gap:2rem;margin:1.5rem 0}
-.index-list li{break-inside:avoid}
-footer{text-align:center;color:#777;font-size:.85rem;margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid var(--border)}
-@media(max-width:600px){main{margin-top:4.5rem;padding:1rem}main h1{font-size:1.6rem}main h2{font-size:1.3rem}.index-list{column-count:1}}
-</style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Expansão da Consciência - Gerson Fernandes</title>
+    <meta name="description" content="Um Guia Espírita para a Cura, o Autoconhecimento e a Libertação do Espírito, por Gerson Fernandes.">
+    <style>
+        :root {
+            --primary: #4a2c6b;
+            --secondary: #6b4a8a;
+            --accent: #b8860b;
+            --bg: #fdfbf7;
+            --text: #333;
+            --quote: #555;
+            --border: #ddd6c6;
+            --shadow: 0 2px 8px rgba(0,0,0,.1);
+            --max-width: 800px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px;
+            hyphens: auto;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+        }
+
+        /* Cover */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a0b2e 0%, #4a2c6b 50%, #6b4a8a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('capa-livro-espirita.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .cover h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        .cover h2 {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: #e0d5e8;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .cover-author {
+            font-size: 1.2em;
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 600;
+        }
+
+        .cover-info {
+            font-size: 0.9em;
+            color: #d0c5d8;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 0.9em;
+            z-index: 1;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.15rem;
+            margin: 0;
+            max-width: 70%;
+            line-height: 1.25;
+        }
+
+        #menuBtn {
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.4);
+            color: #fff;
+            padding: .5rem .9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: .9rem;
+        }
+
+        #menuBtn:hover {
+            background: rgba(255,255,255,.3);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 300px;
+            background: #fff;
+            border-right: 1px solid var(--border);
+            transform: translateX(-100%);
+            transition: transform .3s;
+            overflow-y: auto;
+            z-index: 1100;
+            box-shadow: var(--shadow);
+        }
+
+        nav.open {
+            transform: translateX(0);
+        }
+
+        nav h2 {
+            font-size: 1rem;
+            color: var(--primary);
+            padding: 1rem 1rem .5rem;
+            margin: 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav a {
+            display: block;
+            padding: .7rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: .9rem;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: #f7f2ff;
+            color: var(--primary);
+            padding-left: 1.2rem;
+        }
+
+        nav .close {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: .8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            display: none;
+            z-index: 1050;
+        }
+
+        #overlay.show {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 80px 30px 60px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        main h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: .5rem;
+            line-height: 1.2;
+        }
+
+        main h2 {
+            color: var(--primary);
+            font-size: 1.7rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: .4rem;
+            page-break-after: avoid;
+        }
+
+        main h3 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-top: 1.8rem;
+            margin-bottom: .8rem;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 1rem 0;
+            text-align: justify;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: var(--quote);
+            border-left: 4px solid var(--secondary);
+            margin: 1.2rem 0;
+            padding: .8rem 1.2rem;
+            background: #f9f5ff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 1.8rem;
+        }
+
+        li {
+            margin: .5rem 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--accent);
+            margin: 2.5rem 0;
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        em {
+            color: #5a4a3a;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .downloads {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .downloads a {
+            background: var(--primary);
+            color: #fff;
+            padding: .8rem 1.3rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: .95rem;
+            transition: background 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .downloads a:hover {
+            background: var(--secondary);
+        }
+
+        .cover-simple {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cover-simple img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .back-cover {
+            background: linear-gradient(135deg, #f7f2ff 0%, #fdfbf7 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .back-cover h2 {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: .5rem;
+        }
+
+        .index-list {
+            column-count: 2;
+            column-gap: 2rem;
+            margin: 1.5rem 0;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .index-list li {
+            break-inside: avoid;
+            padding: .3rem 0;
+            border-bottom: 1px dotted var(--border);
+        }
+
+        .author-section {
+            background: linear-gradient(135deg, #f7f2ff 0%, #fdfbf7 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .credits-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: .85rem;
+            margin: 3rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* TOC links */
+        .toc-link {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .toc-link:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 2em;
+            }
+
+            .cover h2 {
+                font-size: 1em;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            main {
+                margin-top: 4rem;
+                padding: 80px 20px 40px;
+            }
+
+            main h1 {
+                font-size: 1.7rem;
+            }
+
+            main h2 {
+                font-size: 1.4rem;
+            }
+
+            .index-list {
+                column-count: 1;
+            }
+
+            nav {
+                width: 260px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            header, nav, #overlay, .scroll-hint {
+                display: none;
+            }
+
+            main {
+                margin-top: 0;
+                box-shadow: none;
+            }
+
+            .cover {
+                min-height: 80vh;
+            }
+        }
+    </style>
+<style id="final-polish">
+.cover-content{width:min(92vw,760px);max-height:calc(100vh - 100px);overflow:auto;padding:clamp(1rem,3vw,2rem);box-sizing:border-box}
+.cover-image{display:block;width:auto;max-width:100%;height:auto;max-height:52vh;object-fit:contain;margin:0 auto 1rem}
+.cover-info,.cover-author,.downloads{position:relative;z-index:1}.downloads{flex-wrap:wrap}.downloads a{white-space:nowrap}
+@media(max-width:600px){.cover{min-height:calc(100vh - 70px);padding:1rem}.cover-image{max-height:48vh}.cover-content{width:96vw}.cover-info{font-size:.85rem}}
+</style></head>
 <body>
-<header>
-<h1>A Expansão da Consciência</h1>
-<button id="menuBtn" onclick="toggleMenu()">☰ Capítulos</button>
-</header>
-<div id="overlay" onclick="toggleMenu()"></div>
-<nav id="menu">
-<div class="close" onclick="toggleMenu()">Fechar menu</div>
-<h2>Sumário</h2>
-<div id="toc"></div>
-</nav>
-<main id="content">
-<div class="cover">
-<img src="capa-livro-espirita.png" alt="Capa do livro A Expansão da Consciência">
-</div>
+    <header>
+        <h1>A Expansão da Consciência</h1>
+        <button id="menuBtn" onclick="toggleMenu()">☰ Capítulos</button>
+    </header>
+    <div id="overlay" onclick="toggleMenu()"></div>
+    <nav id="menu">
+        <div class="close" onclick="toggleMenu()">Fechar menu</div>
+        <h2>Sumário</h2>
+        <div id="toc"></div>
+    </nav>
+
+    <div id="content">
+        
+    <div class="cover" id="capa">
+        <div class="cover-content">
+            <img src="capa-livro-espirita.png" alt="Capa do livro A Expansão da Consciência" class="cover-image">
+            <div class="cover-info">Inspirado no documento: CIA-RDP96-00788R001700210016-5<br>Adaptação espírita e simplificada para o estudo da alma</div>
+            <div class="cover-author">Por Gerson Fernandes</div>
+            <div class="downloads">
+                <a href="A-Expansao-da-Consciencia-Livro-Espirita.pdf" download>📥 Baixar PDF</a>
+                <a href="A-Expansao-da-Consciencia-Livro-Espirita.epub" download>📥 Baixar EPUB</a>
+                <a href="A-Expansao-da-Consciencia-Livro-Espirita-AUDIO-COMPLETO.mp3" download>🎧 Baixar Áudio</a>
+            </div>
+        </div>
+        <div class="scroll-hint">▼ Role para ler ▼</div>
+    </div>
+
 <h1>A Expansão da Consciência</h1>
 <p class="center"><em>Um Guia Espírita para a Cura, o Autoconhecimento e a Libertação do Espírito</em></p>
-<div class="downloads">
-<a href="A-Expansao-da-Consciencia-Livro-Espirita.pdf" download>📥 Baixar PDF</a>
-<a href="A-Expansao-da-Consciencia-Livro-Espirita.epub" download>📥 Baixar EPUB</a>
-<a href="A-Expansao-da-Consciencia-Livro-Espirita-AUDIO-COMPLETO.mp3" download>🎧 Baixar Áudio</a>
-</div>
-<p># A Expansão da Consciência</p>
-<h2>Um Guia Espírita para a Cura, a Autoconhecimento e a Libertação do Espírito</h2>
+
 
 <strong>Inspirado no documento:</strong> CIA-RDP96-00788R001700210016-5  
 <strong>Adaptação espírita e simplificada para o estudo da alma</strong>
 
-<p>---</p>
+<hr>
 <h2>Sumário</h2>
 
-<ol><ul><li>[Apresentação](#apresentação)</li>
-<li>[O Que é a Consciência?](#o-que-é-a-consciência)</li>
-<li>[O Corpo Físico e o Corpo Espiritual](#o-corpo-físico-e-o-corpo-espiritual)</li>
-<li>[A Reencarnação e a Jornada da Alma](#a-reencarnação-e-a-jornada-da-alma)</li>
-<li>[Allan Kardec e a Codificação Espírita](#allan-kardec-e-a-codificação-espírita)</li>
-<li>[O Brasil, Pátria do Evangelho e Coração do Mundo](#o-brasil-pátria-do-evangelho-e-coração-do-mundo)</li>
-<li>[A Mão de Obra Escrava e a Fé que Resistiu](#a-mão-de-obra-escrava-e-a-fé-que-resistiu)</li>
-<li>[As Grandes Fazendas e as Senzalas](#as-grandes-fazendas-e-as-senzalas)</li>
-<li>[O Tráfico de Negros: Dor, Culpa e Expiação](#o-tráfico-de-negros-dor-culpa-e-expiação)</li>
-<li>[Umbanda: A Religião do Povo Brasileiro](#umbanda-a-religião-do-povo-brasileiro)</li>
-<li>[Ouro, Cana-de-Açúcar e Café: A Riqueza e a Dor do Brasil](#ouro-cana-de-açúcar-e-café-a-riqueza-e-a-dor-do-brasil)</li>
-<li>[A Sincronização dos Hemisférios Cerebrais](#a-sincronização-dos-hemisférios-cerebrais)</li>
-<li>[Hipnose e o Desbloqueio da Alma](#hipnose-e-o-desbloqueio-da-alma)</li>
-<li>[Meditação, Oração e Elevação Espiritual](#meditação-oração-e-elevação-espiritual)</li>
-<li>[O Desdobramento e a Saída do Corpo](#o-desdobramento-e-a-saída-do-corpo)</li>
-<li>[Sonhos e Suas Mensagens](#sonhos-e-suas-mensagens)</li>
-<li>[A Cura pelas Mãos do Espírito](#a-cura-pelas-mãos-do-espírito)</li>
-<li>[O Passe e o Tratamento Espiritual](#o-passe-e-o-tratamento-espiritual)</li>
-<li>[A Obsessão e o Desobsessão](#a-obsessão-e-o-desobsessão)</li>
-<li>[O Tempo e o Espaço na Visão Espírita](#o-tempo-e-o-espaço-na-visão-espírita)</li>
-<li>[A Lei de Causa e Efeito](#a-lei-de-causa-e-efeito)</li>
-<li>[O Perdão como Libertação](#o-perdão-como-libertação)</li>
-<li>[A Mediunidade e os Dons do Espírito](#a-mediunidade-e-os-dons-do-espírito)</li>
-<li>[Robson Pinheiro e o Desdobramento Espiritual Consciente](#robson-pinheiro-e-o-desdobramento-espiritual-consciente)</li>
-<li>[Osmar Barbosa e a Colônia Espiritual Amor e Caridade](#osmar-barbosa-e-a-colônia-espiritual-amor-e-caridade)</li>
-<li>[Chico Xavier, o Apóstolo da Caridade](#chico-xavier-o-apóstolo-da-caridade)</li>
-<li>[Divaldo Pereira Franco e a Psicografia da Educação](#divaldo-pereira-franco-e-a-psicografia-da-educação)</li>
-<li>[Joanna de Ângelis e as Obras de Ivone do Amaral Pereira](#joanna-de-ângelis-e-as-obras-de-ivone-do-amaral-pereira)</li>
-<li>[A Cidade dos Espíritos e os Guardiões da Humanidade](#a-cidade-dos-espíritos-e-os-guardiões-da-humanidade)</li>
-<li>[O Umbral e o Trabalho da Luz](#o-umbral-e-o-trabalho-da-luz)</li>
-<li>[Como Aplicar no Dia a Dia](#como-aplicar-no-dia-a-dia)</li>
-<li>[Orações e Exercícios Práticos](#orações-e-exercícios-práticos)</li>
-<li>[A Missão do Brasil na Nova Era](#a-missão-do-brasil-na-nova-era)</li>
-<li>[Conclusão](#conclusão)</li>
-</ul></ol>
----
+<ul><li><a href="#apresentação" class="toc-link">Apresentação</a></li>
+<li><a href="#o-que-é-a-consciência" class="toc-link">O Que é a Consciência?</a></li>
+<li><a href="#o-corpo-físico-e-o-corpo-espiritual" class="toc-link">O Corpo Físico e o Corpo Espiritual</a></li>
+<li><a href="#a-reencarnação-e-a-jornada-da-alma" class="toc-link">A Reencarnação e a Jornada da Alma</a></li>
+<li><a href="#allan-kardec-e-a-codificação-espírita" class="toc-link">Allan Kardec e a Codificação Espírita</a></li>
+<li><a href="#o-brasil-pátria-do-evangelho-e-coração-do-mundo" class="toc-link">O Brasil, Pátria do Evangelho e Coração do Mundo</a></li>
+<li><a href="#a-mão-de-obra-escrava-e-a-fé-que-resistiu" class="toc-link">A Mão de Obra Escrava e a Fé que Resistiu</a></li>
+<li><a href="#as-grandes-fazendas-e-as-senzalas" class="toc-link">As Grandes Fazendas e as Senzalas</a></li>
+<li><a href="#o-tráfico-de-negros-dor-culpa-e-expiação" class="toc-link">O Tráfico de Negros: Dor, Culpa e Expiação</a></li>
+<li><a href="#umbanda-a-religião-do-povo-brasileiro" class="toc-link">Umbanda: A Religião do Povo Brasileiro</a></li>
+<li><a href="#ouro-cana-de-açúcar-e-café-a-riqueza-e-a-dor-do-brasil" class="toc-link">Ouro, Cana-de-Açúcar e Café: A Riqueza e a Dor do Brasil</a></li>
+<li><a href="#a-sincronização-dos-hemisférios-cerebrais" class="toc-link">A Sincronização dos Hemisférios Cerebrais</a></li>
+<li><a href="#hipnose-e-o-desbloqueio-da-alma" class="toc-link">Hipnose e o Desbloqueio da Alma</a></li>
+<li><a href="#meditação-oração-e-elevação-espiritual" class="toc-link">Meditação, Oração e Elevação Espiritual</a></li>
+<li><a href="#o-desdobramento-e-a-saída-do-corpo" class="toc-link">O Desdobramento e a Saída do Corpo</a></li>
+<li><a href="#sonhos-e-suas-mensagens" class="toc-link">Sonhos e Suas Mensagens</a></li>
+<li><a href="#a-cura-pelas-mãos-do-espírito" class="toc-link">A Cura pelas Mãos do Espírito</a></li>
+<li><a href="#o-passe-e-o-tratamento-espiritual" class="toc-link">O Passe e o Tratamento Espiritual</a></li>
+<li><a href="#a-obsessão-e-o-desobsessão" class="toc-link">A Obsessão e o Desobsessão</a></li>
+<li><a href="#o-tempo-e-o-espaço-na-visão-espírita" class="toc-link">O Tempo e o Espaço na Visão Espírita</a></li>
+<li><a href="#a-lei-de-causa-e-efeito" class="toc-link">A Lei de Causa e Efeito</a></li>
+<li><a href="#o-perdão-como-libertação" class="toc-link">O Perdão como Libertação</a></li>
+<li><a href="#a-mediunidade-e-os-dons-do-espírito" class="toc-link">A Mediunidade e os Dons do Espírito</a></li>
+<li><a href="#robson-pinheiro-e-o-desdobramento-espiritual-consciente" class="toc-link">Robson Pinheiro e o Desdobramento Espiritual Consciente</a></li>
+<li><a href="#osmar-barbosa-e-a-colônia-espiritual-amor-e-caridade" class="toc-link">Osmar Barbosa e a Colônia Espiritual Amor e Caridade</a></li>
+<li><a href="#chico-xavier-o-apóstolo-da-caridade" class="toc-link">Chico Xavier, o Apóstolo da Caridade</a></li>
+<li><a href="#divaldo-pereira-franco-e-a-psicografia-da-educação" class="toc-link">Divaldo Pereira Franco e a Psicografia da Educação</a></li>
+<li><a href="#joanna-de-ângelis-e-as-obras-de-ivone-do-amaral-pereira" class="toc-link">Joanna de Ângelis e as Obras de Ivone do Amaral Pereira</a></li>
+<li><a href="#a-cidade-dos-espíritos-e-os-guardiões-da-humanidade" class="toc-link">A Cidade dos Espíritos e os Guardiões da Humanidade</a></li>
+<li><a href="#o-umbral-e-o-trabalho-da-luz" class="toc-link">O Umbral e o Trabalho da Luz</a></li>
+<li><a href="#como-aplicar-no-dia-a-dia" class="toc-link">Como Aplicar no Dia a Dia</a></li>
+<li><a href="#orações-e-exercícios-práticos" class="toc-link">Orações e Exercícios Práticos</a></li>
+<li><a href="#a-missão-do-brasil-na-nova-era" class="toc-link">A Missão do Brasil na Nova Era</a></li>
+<li><a href="#conclusão" class="toc-link">Conclusão</a></li></ul>
+<hr>
 <h2>Apresentação</h2>
 <p>
 Este livro nasceu da vontade de compreender, de uma forma simples e acessível, como o ser humano pode expandir sua consciência e se aproximar do mundo espiritual. Não vamos mergulhar em fórmulas complicadas nem em explicações científicas frias. Nosso objetivo aqui é falar à alma, usando uma linguagem clara, humana e cheia de esperança.</p>
@@ -118,7 +535,7 @@ Este livro nasceu da vontade de compreender, de uma forma simples e acessível, 
 
 <p>Aqui vamos falar sobre a cura, a hipnose como ferramenta de libertação, o desdobramento espiritual, a saída do corpo e, acima de tudo, o amor como a maior força do universo.</p>
 
-<p>---</p>
+<hr>
 <h2>O Que é a Consciência?</h2>
 <p>
 A consciência é a luz que existe dentro de cada um de nós. É aquela voz interior que nos diz o que é certo e o que é errado. É a capacidade de pensar, sentir, amar, recordar e aprender. É o que nos faz saber que existimos.</p>
@@ -129,15 +546,14 @@ A consciência é a luz que existe dentro de cada um de nós. É aquela voz inte
 
 <p>Nossa consciência, na maioria das vezes, fica presa aos problemas do dia a dia: contas para pagar, doenças, brigas, medos. Mas ela pode se expandir. Pode crescer. Pode perceber o mundo espiritual. E pode, sobretudo, se conectar com o nosso <strong>Eu Superior</strong>, aquela parte de nós que já sabe tudo o que precisamos aprender.</p>
 
-<p>### Os Três Níveis da Consciência</p>
+<h3>Os Três Níveis da Consciência</h3>
 
-<ol><ul><li><strong>Consciência comum</strong> — estado em que vivemos o dia a dia, preocupados com a matéria.</li>
+<ul><li><strong>Consciência comum</strong> — estado em que vivemos o dia a dia, preocupados com a matéria.</li>
 <li><strong>Consciência interior</strong> — estado de oração, meditação e reflexão, em que começamos a ouvir a voz da alma.</li>
-<li><strong>Consciência expandida</strong> — estado em que percebemos a unidade de todas as coisas e sentimos a presença do mundo espiritual.</li>
-</ul></ol>
+<li><strong>Consciência expandida</strong> — estado em que percebemos a unidade de todas as coisas e sentimos a presença do mundo espiritual.</li></ul>
 Através do estudo, da oração e das práticas espirituais, podemos ir subindo essa escada. Não é necessário ser médium nem ter dons especiais. Basta querer evoluir.
 
-<p>---</p>
+<hr>
 <h2>O Corpo Físico e o Corpo Espiritual</h2>
 <p>
 Nós temos, ao mesmo tempo, um corpo físico e um corpo espiritual. O corpo físico é feito de carne, ossos, sangue e água. Ele é temporário. Nasce, cresce, envelhece e morre. O corpo espiritual, também chamado de <strong>perispírito</strong>, é feito de uma matéria mais sutil, invisível aos olhos comuns, mas muito real.</p>
@@ -150,7 +566,7 @@ Nós temos, ao mesmo tempo, um corpo físico e um corpo espiritual. O corpo fís
 
 <p>A meditação, a oração e a hipnose profunda ajudam a relaxar essa ligação de forma segura, permitindo que a consciência viaje e aprenda sem que o corpo físico precise morrer.</p>
 
-<p>---</p>
+<hr>
 <h2>A Reencarnação e a Jornada da Alma</h2>
 <p>
 A reencarnação é uma das verdades mais fundamentais do Espiritismo. Ela nos ensina que a alma não nasce e nem morre. Ela vive várias vidas, em corpos diferentes, para aprender, evoluir e pagar suas dívidas espirituais.</p>
@@ -159,67 +575,66 @@ A reencarnação é uma das verdades mais fundamentais do Espiritismo. Ela nos e
 
 <blockquote>"Viver é aprender. Morrer é renascer." — Doutrina Espírita</blockquote>
 
-<p>### Por que Reencarnamos?</p>
+<h3>Por que Reencarnamos?</h3>
 
 <p>Reencarnamos porque ainda temos lições a aprender. O espírito evolui através do amor, do trabalho, do sofrimento bem compreendido e do serviço ao próximo. Nenhuma alma fica eternamente presa na Terra. Cada vida é um degrau na longa escada que leva de volta a Deus.</p>
 
-<p>### O Plano Espiritual entre as Vidas</p>
+<h3>O Plano Espiritual entre as Vidas</h3>
 
 <p>Entre uma encarnação e outra, o espírito habita o mundo espiritual. Lá, encontra entes queridos, recebe orientação de espíritos mais evoluídos e planeja a próxima encarnação. Não há descanso eterno para quem ainda precisa crescer. Mas há muito amor, estudo e esperança.</p>
 
-<p>### A Importância do Livre-Arbítrio</p>
+<h3>A Importância do Livre-Arbítrio</h3>
 
 <p>Deus nos deu o dom de escolher. Podemos escolher o bem ou o mal, o amor ou o ódio, a evolução ou o atraso. Ninguém é condenado por Deus. Somos nós mesmos, através de nossas escolhas, que construímos nosso futuro.</p>
 
-<p>---</p>
+<hr>
 <h2>Allan Kardec e a Codificação Espírita</h2>
 <p>
 Nenhum estudo espírita pode deixar de começar por <strong>Allan Kardec</strong>, o professor francês que, no século XIX, organizou a Doutrina Espírita. Seu verdadeiro nome era Hippolyte Léon Denizard Rivail. Ele foi educador, escritor e pesquisador. Quando o fenômeno das mesas girantes chegou à Europa, Kardec não aceitou as explicações fantásticas. Ele decidiu estudar os fatos com rigor, método e imparcialidade.</p>
 
 <p>Kardec organizou as respostas dos Espíritos Superiores em cinco obras fundamentais, conhecidas como a <strong>Codificação Espírita</strong>:</p>
 
-<ol><ul><li><strong>O Livro dos Espíritos</strong> (1857) — responde 1.018 questões sobre Deus, a alma, o universo, a reencarnação e a vida espiritual.</li>
+<ul><li><strong>O Livro dos Espíritos</strong> (1857) — responde 1.018 questões sobre Deus, a alma, o universo, a reencarnação e a vida espiritual.</li>
 <li><strong>O Livro dos Médiuns</strong> (1861) — ensina sobre a mediunidade, seus tipos, perigos e prática correta.</li>
 <li><strong>O Evangelho Segundo o Espiritismo</strong> (1864) — explica os ensinamentos de Jesus à luz da Doutrina Espírita.</li>
 <li><strong>O Céu e o Inferno</strong> (1865) — fala sobre a justiça divina, o estado dos espíritos após a morte e as comunicações mediúnicas.</li>
 <li><strong>A Gênese</strong> (1868) — aborda a criação do universo, a formação dos mundos e as leis naturais.</li>
 
-<p>### O Método de Kardec</p>
+<h3>O Método de Kardec</h3>
 
 <p>Kardec não inventou o Espiritismo. Ele organizou as respostas dos espíritos, sempre comparando, questionando e buscando coerência. Seu lema era a <strong>razão</strong>. Ele dizia que a fé cega não era necessária. A Doutrina Espírita deve ser aceita porque faz sentido e responde às grandes questões humanas.</p>
 
 <blockquote>"Fora da caridade não há salvação." — O Livro dos Espíritos</blockquote>
 
-<p>### As Três Bases do Espiritismo</p>
+<h3>As Três Bases do Espiritismo</h3>
 
 <p>O Espiritismo, segundo Kardec, se sustenta em três pilares:</p>
 
 <li><strong>Existência de Deus</strong> — o princírio inteligente e supremo do universo.</li>
 <li><strong>Imortalidade da alma</strong> — o espírito não morre; muda de estado.</li>
-<li><strong>Reencarnação</strong> — o espírito retorna ao corpo físico para evoluir.</li>
-</ul></ol>
+<li><strong>Reencarnação</strong> — o espírito retorna ao corpo físico para evoluir.</li></ul>
 Além dessas bases, Kardec destacou a comunicabilidade dos espíritos, a pluralidade dos mundos habitados, a evolução espiritual e a importância da caridade.
 
-<p>### Por que Kardec é Fundamental</p>
+<h3>Por que Kardec é Fundamental</h3>
 
 <p>Sem Allan Kardec, não haveria Doutrina Espírita organizada. Tudo o que Robson Pinheiro, Osmar Barbosa e outros médiuns contemporâneos trabalham tem raiz na codificação. Quando lemos obras modernas, devemos sempre compará-las com os ensinamentos de Kardec. Ele nos deixou um mapa seguro para não nos perdermos no mundo espiritual.</p>
 
 <p>A expansão da consciência, o desdobramento, a cura, o perdão e a mediunidade só são seguros quando praticados com base nos princípios kardecianos: amor, caridade, fé raciocinada e respeito às leis divinas.</p>
 
-<p>---</p>
+<hr>
 <h2>O Brasil, Pátria do Evangelho e Coração do Mundo</h2>
 <p>
 O Brasil tem um papel especial na história espiritual da humanidade. Muitas mensagens dos espíritos superiores apontam o nosso país como a <strong>Pátria do Evangelho</strong> e o <strong>Coração do Mundo</strong>, de onde sairão os ensinamentos de fraternidade, amor e regeneração para toda a Terra.</p>
 
 <p>Essa missão não é de vaidade nacional. Pelo contrário, é uma grande responsabilidade. Ser chamado de Coração do Mundo significa que o Brasil deve pulsar amor, acolhimento e esperança. Significa que, de nossa terra, devem irradiar os valores do Evangelho de Jesus para os quatro cantos do planeta.</p>
 
-<p>### Por que o Brasil?</p>
+<h3>Por que o Brasil?</h3>
 
 <p>O Brasil foi escolhido por sua capacidade de acolhimento. Aqui, povos de todas as raças, credos e culturas se encontraram. A miscigenação não é apenas física; é espiritual. Nossa terra recebeu influências indígenas, africanas, europeias e orientais, formando um povo especialmente sensível às questões espirituais.</p>
 
 <p>Além disso, o Brasil abriga a maior comunidade espírita do mundo. Milhões de pessoas estudam a Doutrina Espírita, praticam a caridade e trabalham pelo próximo. Temos os maiores médiuns da história, como Chico Xavier e Divaldo Pereira Franco, e uma produção literária espírita incomparável.</p>
 
-<p>### A Missão Brasileira</p>
+<h3>A Missão Brasileira</h3>
 
 <p>A missão do Brasil não é dominar politicamente o mundo, mas <strong>ensinar com o exemplo</strong>. Nossa contribuição deve ser:</p>
 
@@ -232,7 +647,7 @@ O Brasil tem um papel especial na história espiritual da humanidade. Muitas men
 
 <blockquote>"O Brasil é a Pátria do Evangelho." — Doutrina Espírita</blockquote>
 
-<p>### Os Ensinamentos que Saem daqui</p>
+<h3>Os Ensinamentos que Saem daqui</h3>
 
 <p>Do Brasil já saíram e ainda sairão muitos ensinamentos espirituais para o mundo:</p>
 
@@ -240,36 +655,35 @@ O Brasil tem um papel especial na história espiritual da humanidade. Muitas men
 <li>Médiuns que inspiram outras nações.</li>
 <li>Casas espíritas como modelo de assistência social.</li>
 <li>Programas de educação, saúde e assistência baseados na caridade.</li>
-<li>Mensagens de paz, esperança e reconciliação.</li>
-</ul>
+<li>Mensagens de paz, esperança e reconciliação.</li></ul>
 O Brasil tem a oportunidade de mostrar ao mundo que é possível viver em harmonia, respeito e amor. Mas para isso, precisamos honrar nossa missão. Cada brasileiro que pratica o bem, por menor que pareça, contribui para que o Brasil seja, de fato, o Coração do Mundo.
 
-<p>### O Brasil e os Guardiões da Humanidade</p>
+<h3>O Brasil e os Guardiões da Humanidade</h3>
 
 <p>Muitas comunicações espirituais sugerem que espíritos altamente evoluídos acompanham de perto a evolução do Brasil. Eles sabem que, deste país, depende em grande parte a expansão dos ensinamentos cristãos renovados para a nova era.</p>
 
 <p>Não somos melhores do que outros povos, mas temos uma oportunidade única. A escolha está em nossas mãos. Podemos ser o coração que pulsa amor, ou podemos desperdiçar essa graça. A espiritualidade nos ensina que missões assim são conquistadas com trabalho, sacrifício e muita caridade.</p>
 
-<p>---</p>
+<hr>
 <h2>A Mão de Obra Escrava e a Fé que Resistiu</h2>
 <p>
 A história do Brasil não pode ser contada sem reconhecer a dor imensa da escravidão. Milhões de africanos foram trazidos à força para nossa terra, arrancados de suas famílias, de suas culturas e de sua dignidade. Esse capítulo doloroso deixou cicatrizes profundas na alma nacional, mas também deixou lições espirituais que precisam ser compreendidas.</p>
 
 <p>Para o espírita, nada acontece ao acaso. A Lei de Causa e Efeito nos ensina que os povos, assim como os indivíduos, colhem o que plantam. A escravidão foi uma grande injustiça, uma violação da lei do amor. Quem praticou a opressão, quem lucrou com o sofrimento alheio e quem fechou os olhos para a dor do outro construiu para si mesmos dívidas espirituais que ainda precisam ser pagas.</p>
 
-<p>### A Fé dos Escravizados</p>
+<h3>A Fé dos Escravizados</h3>
 
 <p>Apesar de toda a dor, os povos africanos trouxeram para o Brasil algo que a violência não conseguiu destruir: a sua fé. Eles chegaram aqui com suas crenças, seus orixás, suas rezas, seus ritmos e sua conexão profunda com o mundo espiritual. Mesmo proibidos de cultuar seus deuses abertamente, encontraram formas de manter sua espiritualidade viva.</p>
 
 <p>Nas senzalas, nos terreiros escondidos, nos trabalhos forçados, eles cantavam, rezavam, dançavam e invocavam a proteção dos ancestrais. A fé foi, para eles, alimento, resistência e esperança. Foi através da espiritualidade que muitos conseguiram suportar o insuportável.</p>
 
-<p>### A Mistura que Formou o Brasil</p>
+<h3>A Mistura que Formou o Brasil</h3>
 
 <p>A alma brasileira nasceu dessa mistura. O indígena, com sua conexão com a natureza e os espíritos da floresta. O africano, com sua força, seu ritmo e sua ancestralidade. O europeu, com suas tradições religiosas e seu modo de organizar a sociedade. Esses três mundos se encontraram de forma desigual e violenta, mas também criaram algo novo.</p>
 
 <p>A espiritualidade brasileira é, em grande parte, fruto dessa fusão. Nossa sensibilidade para o mundo espiritual, nossa crença na vida após a morte, nosso respeito pelos mortos e pelos ancestrais, nossa devoção a santos e entidades, tudo isso tem raízes nesse encontro de povos.</p>
 
-<p>### O Perdão e a Cura Nacional</p>
+<h3>O Perdão e a Cura Nacional</h3>
 
 <p>Reconhecer a dor do passado não é cultivar ódio. É necessário para que haja cura. O Brasil precisa pedir perdão pelos erros da escravidão, honrar a memória dos que sofreram e trabalhar para que nunca mais se repitam tais atrocidades.</p>
 
@@ -277,55 +691,55 @@ A história do Brasil não pode ser contada sem reconhecer a dor imensa da escra
 
 <blockquote>"A justiça divina não se engana. Cada alma colherá o fruto de suas obras." — Espíritos Superiores</blockquote>
 
-<p>---</p>
+<hr>
 <h2>As Grandes Fazendas e as Senzalas</h2>
 <p>
 As grandes fazendas do Brasil colonial e imperial foram o cenário de muito sofrimento. Cana-de-açúcar, café, algodão, tabaco e outras riquezas foram construídas sobre o trabalho escravo. Por trás da prosperidade de alguns poucos, havia a dor de muitos.</p>
 
 <p>As senzalas eram locais de humilhação, castigos, separação familiar e negação da própria humanidade. Muitas vezes, pessoas eram tratadas como objetos, como mercadorias. Mas a espiritualidade nos ensina que nenhum ser humano é objeto. Cada um de nós é um espírito em evolução, filho de Deus, merecedor de respeito.</p>
 
-<p>### A Vida nas Senzalas</p>
+<h3>A Vida nas Senzalas</h3>
 
 <p>Nas senzalas, a vida era dura. O trabalho começava antes do sol nascer e só terminava depois que ele se punha. A alimentação era precária, a higiene era quase inexistente e a violência física era constante. Famílias eram destruídas quando pais, mães e filhos eram vendidos separadamente.</p>
 
 <p>Mas mesmo ali, no fundo da dor, a luz da espiritualidade não se apagava. Reuniões secretas, rezas sussurradas, cantos que carregavam lamentos e esperanças, tudo isso mantinha viva a dignidade daqueles que o sistema tentava reduzir a nada.</p>
 
-<p>### Os Campos de Café e de Cana</p>
+<h3>Os Campos de Café e de Cana</h3>
 
 <p>No interior do Brasil, especialmente em Minas Gerais, São Paulo, Rio de Janeiro e outras províncias, as fazendas de café se expandiram no século XIX. Com elas, cresceu também a demanda por mão de obra escrava. O café enriqueceu algumas famílias, construiu cidades e impulsionou a economia, mas também aprofundou a dependência do trabalho forçado.</p>
 
 <p>A cana-de-açúcar, desde o século XVI, já havia marcado o Nordeste com o mesmo sofrimento. Engenhos, moendas, fornos e casas-grandes foram palco de incontáveis dramas humanos. A riqueza do açúcar europeu tinha gosto de sangue, suor e lágrimas.</p>
 
-<p>### A Lição Espiritual</p>
+<h3>A Lição Espiritual</h3>
 
 <p>Do ponto de vista espiritual, a exploração é sempre um retrocesso. Quando uma pessoa se aproveita do sofrimento do outro, ela não evolui. Ela cria para si mesma uma cadeia de causa e efeito que um dia precisará enfrentar. A riqueza mal conquistada traz consigo uma carga espiritual pesada.</p>
 
 <p>Por outro lado, aqueles que sofreram com dignidade, que mantiveram a fé e que perdoaram, sem dúvida avançaram em sua evolução. O sofrimento bem compreendido é uma escola. Muitos espíritos que viveram na escravidão hoje reencarnam como pessoas de grande sensibilidade espiritual, trabalhando pela justiça, pela cura e pela fraternidade.</p>
 
-<p>### Honrar a Memória</p>
+<h3>Honrar a Memória</h3>
 
 <p>Honrar a memória dos escravizados significa mais do que construir monumentos. Significa lutar contra o racismo, promover a igualdade, valorizar a cultura negra e garantir que as novas gerações conheçam a verdadeira história do Brasil. Somente assim conseguiremos curar as feridas que ainda dividem nossa sociedade.</p>
 
-<p>---</p>
+<hr>
 <h2>O Tráfico de Negros: Dor, Culpa e Expiação</h2>
 <p>
 O tráfico negreiro foi um dos maiores crimes da história da humanidade. Durante séculos, africanos foram capturados em suas terras, trancados em porões de navios, vendidos como mercadorias e distribuídos pelas Américas. O Brasil foi o país que mais recebeu pessoas escravizadas: cerca de cinco milhões de seres humanos.</p>
 
 <p>Essa tragédia não foi apenas econômica ou social. Foi uma ferida espiritual profunda. Cada corpo acorrentado carregava uma alma. Cada alma arrancada de seu lar deixava para trás famílias, sonhos, planos e um pedaço da humanidade.</p>
 
-<p>### A Viagem dos Navios Negreiros</p>
+<h3>A Viagem dos Navios Negreiros</h3>
 
 <p>A chamada "passagem pelo meio do caminho" era um inferno. As pessoas eram amontoadas em porões úmidos, sujos e sem ventilação. Muitas morriam durante a travessia por doenças, desidratação, suicídio ou violência. Os que sobreviviam chegavam ao Brasil marcados para sempre, não apenas no corpo, mas na alma.</p>
 
 <p>Para o espírita, a morte não é o fim. Os espíritos que morriam nessas condições terríveis não desapareciam. Muitos permaneciam ligados à Terra pelo sofrimento, pela mágoa, pelo ódio ou pelo desejo de justiça. Essas dores espirituais ainda influenciam, de alguma forma, o campo coletivo do Brasil.</p>
 
-<p>### Culpa e Responsabilidade Coletiva</p>
+<h3>Culpa e Responsabilidade Coletiva</h3>
 
 <p>A culpa da escravidão não pertence apenas aos traficantes ou aos proprietários de escravos. Pertence a toda uma sociedade que se beneficiou, direta ou indiretamente, desse sistema. Quem lucrou com o café, com o açúcar, com o ouro e com o algodão escravocratas também carrega parte dessa responsabilidade.</p>
 
 <p>A espiritualidade nos ensina que não adianta esconder o passado. Ele precisa ser reconhecido, compreendido e transformado. A expiação não é vingança. É o processo de reparar, de aprender e de mudar. O Brasil precisa expiar suas faltas através da justiça social, da educação, da igualdade racial e do amor ao próximo.</p>
 
-<p>### A Cura Começa com a Verdade</p>
+<h3>A Cura Começa com a Verdade</h3>
 
 <p>O primeiro passo para a cura é dizer a verdade. Precisamos ensinar nas escolas o que realmente aconteceu. Precisamos valorizar as culturas africanas que ajudaram a formar o Brasil. Precisamos reconhecer que o racismo estrutural é uma herança da escravidão e que precisa ser combatido todos os dias.</p>
 
@@ -333,26 +747,26 @@ O tráfico negreiro foi um dos maiores crimes da história da humanidade. Durant
 
 <blockquote>"A verdade vos libertará." — Jesus</blockquote>
 
-<p>---</p>
+<hr>
 <h2>Umbanda: A Religião do Povo Brasileiro</h2>
 <p>
 A Umbanda é uma das religiões mais brasileiras que existem. Ela nasceu da mistura de tradições africanas, espiritualidade indígena, catolicismo popular e, mais tarde, também recebeu influências do Espiritismo. É uma religião de amor, de cura, de caridade e de serviço ao próximo.</p>
 
 <p>Diferente de outras religiões que chegaram com poder e estrutura, a Umbanda nasceu do povo. Era praticada nos terreiros humildes, nas casas simples, nas praças e nos quintais. Seus primeiros templos eram muitas vezes construídos com madeira, palha e muita fé.</p>
 
-<p>### Os Guias e Entidades da Umbanda</p>
+<h3>Os Guias e Entidades da Umbanda</h3>
 
 <p>A Umbanda acredita em uma hierarquia espiritual. Existem os pretos-velhos e pretas-velhas, espíritos de anciãos africanos que trazem sabedoria, paciência e cura. Há os caboclos, ligados às tradições indígenas, que ensinam a viver em harmonia com a natureza. Há as crianças, os marinheiros, os boiadeiros, os exus e outras linhas de trabalho espiritual.</p>
 
 <p>Cada entidade tem uma função. Algumas curam, outras conselham, outras protegem, outras realizam trabalhos de desobsessão. O importante é que, na Umbanda, o amor e a caridade são sempre o centro.</p>
 
-<p>### Umbanda e Espiritismo</p>
+<h3>Umbanda e Espiritismo</h3>
 
 <p>Muitas pessoas veem a Umbanda e o Espiritismo como religiões diferentes, e de fato são. Mas ambas compartilham a crença na comunicação com o mundo espiritual, na reencarnação, na lei de causa e efeito e na importância da caridade.</p>
 
 <p>Allan Kardec, ao codificar o Espiritismo, deixou claro que os espíritos evoluem em diferentes caminhos. A Umbanda, com sua linguagem mais popular e seus ritmos, alcança corações que muitas vezes ainda não estão prontos para o estudo doutrinário mais formal. Ela é uma escola de amor.</p>
 
-<p>### A Caridade na Umbanda</p>
+<h3>A Caridade na Umbanda</h3>
 
 <p>A Umbanda é conhecida por seu trabalho de assistência espiritual. Pessoas vão aos terreiros buscando cura, orientação, conforto e paz. Os médiuns atendem sem cobrar, muitas vezes em condições simples, apenas com a vontade de ajudar.</p>
 
@@ -362,14 +776,14 @@ A Umbanda é uma das religiões mais brasileiras que existem. Ela nasceu da mist
 
 <p>A Umbanda nos ensina que a espiritualidade não precisa ser complicada. Basta amar, servir e respeitar a Deus acima de tudo.</p>
 
-<p>---</p>
+<hr>
 <h2>Ouro, Cana-de-Açúcar e Café: A Riqueza e a Dor do Brasil</h2>
 <p>
 O Brasil foi construído sobre riquezas naturais extraordinárias. O ouro das Minas Gerais, a cana-de-açúcar do Nordeste e o café do Vale do Paraíba e de São Paulo foram motores da economia durante séculos. Mas por trás de toda essa riqueza, houve muita dor.</p>
 
 <p>Cada um desses ciclos econômicos alimentou a escravidão. Cada um deles concentrou riquezas nas mãos de poucos. E cada um deles deixou marcas profundas no corpo e na alma do país.</p>
 
-<p>### O Ciclo do Ouro</p>
+<h3>O Ciclo do Ouro</h3>
 
 <p>No século XVIII, a descoberta de ouro em Minas Gerais atraiu milhares de pessoas. Portugueses, brasileiros e africanos escravizados se dirigiram às minas em busca de riqueza. As cidades de Ouro Preto, Mariana, Sabará e Diamantina floresceram.</p>
 
@@ -377,19 +791,19 @@ O Brasil foi construído sobre riquezas naturais extraordinárias. O ouro das Mi
 
 <p>A riqueza do ouro também financiou o luxo de Portugal e pagou dívidas europeias. Pouco ficou para o desenvolvimento real do Brasil. O ouro brilhou, mas a alma do povo escureceu.</p>
 
-<p>### O Ciclo da Cana-de-Açúcar</p>
+<h3>O Ciclo da Cana-de-Açúcar</h3>
 
 <p>Desde o século XVI, a cana-de-açúcar dominou o Nordeste. Os engenhos produziam açúcar para abastecer a Europa, e o trabalho escravo era a base de tudo. As casas-grandes simbolizavam poder, mas também opressão.</p>
 
 <p>A cana exigia trabalho intenso durante todo o ano: plantio, corte, moagem, cozimento, refinamento. O sol escaldante, a fome, a sede e os castigos faziam parte da rotina. Muitos fugiam para os quilombos, comunidades de resistência onde a liberdade era reconstruída com coragem.</p>
 
-<p>### O Ciclo do Café</p>
+<h3>O Ciclo do Café</h3>
 
 <p>No século XIX, o café se tornou o rei da economia brasileira. As fazendas paulistas e cariocas enriqueceram famílias e impulsionaram cidades. Mas a riqueza do café também foi construída sobre a escravidão.</p>
 
 <p>Quando a abolição finalmente chegou, em 1888, muitos escravizados foram simplesmente abandonados, sem terra, sem dinheiro, sem assistência. A liberdade chegou, mas a dignidade demorou muito mais. O ciclo do café mostrou que a riqueza material, sem justiça, não traz felicidade.</p>
 
-<p>### A Visão Espiritual da Riqueza</p>
+<h3>A Visão Espiritual da Riqueza</h3>
 
 <p>A espiritualidade não condena a riqueza. Condena a riqueza conquistada à custa do sofrimento alheio. O dinheiro é uma ferramenta. Pode ser usado para construir escolas, hospitais, lares e obras de caridade. Ou pode ser usado para oprimir, explorar e destruir.</p>
 
@@ -399,7 +813,7 @@ O Brasil foi construído sobre riquezas naturais extraordinárias. O ouro das Mi
 
 <p>A história do ouro, da cana e do café nos ensina que o desenvolvimento material sem amor é vazio. O Brasil só será plenamente próspero quando sua prosperidade for compartilhada por todos.</p>
 
-<p>---</p>
+<hr>
 <h2>A Sincronização dos Hemisférios Cerebrais</h2>
 <p>
 Nosso cérebro é dividido em duas partes: o hemisfério esquerdo e o hemisfério direito.</p>
@@ -411,7 +825,7 @@ Nosso cérebro é dividido em duas partes: o hemisfério esquerdo e o hemisféri
 
 <p>Quando conseguimos acalmar a mente e harmonizar os dois hemisférios, algo maravilhoso acontece: a consciência se expande. A razão e a intuição passam a trabalhar juntas. O corpo relaxa profundamente. E a alma se liberta para voar.</p>
 
-<p>### Como Fazer Essa Sincronia</p>
+<h3>Como Fazer Essa Sincronia</h3>
 
 <p>Existem técnicas simples que ajudam a harmonizar os dois lados do cérebro:</p>
 
@@ -419,11 +833,10 @@ Nosso cérebro é dividido em duas partes: o hemisfério esquerdo e o hemisféri
 <li><strong>Música suave e sons binaurais</strong> — sons que relaxam e equilibram os hemisférios.</li>
 <li><strong>Visualização positiva</strong> — imagine luz entrando pela cabeça e iluminando todo o corpo.</li>
 <li><strong>Oração e meditação</strong> — silenciar a mente para escutar Deus.</li>
-<li><strong>Mantras e repetições sagradas</strong> — palavras de paz repetidas com fé.</li>
-</ul></ol>
+<li><strong>Mantras e repetições sagradas</strong> — palavras de paz repetidas com fé.</li></ul>
 Essas práticas preparam o terreno para experiências maiores: cura, desdobramento, intuição e comunicação com o mundo espiritual.
 
-<p>---</p>
+<hr>
 <h2>Hipnose e o Desbloqueio da Alma</h2>
 <p>
 A palavra <strong>hipnose</strong> assusta algumas pessoas, mas ela pode ser uma ferramenta poderosa de cura quando usada com amor e responsabilidade. A hipnose nada mais é do que um estado de concentração muito profunda, em que a pessoa fica extremamente receptiva a sugestões positivas.</p>
@@ -436,37 +849,35 @@ A palavra <strong>hipnose</strong> assusta algumas pessoas, mas ela pode ser uma
 
 <p>A hipnose terapêutica, bem conduzida, pode ser um caminho para a libertação. Mas deve ser feita com ética, com respeito à vontade da pessoa e sempre buscando o bem maior.</p>
 
-<p>### Cuidados Importantes</p>
+<h3>Cuidados Importantes</h3>
 
 <ul><li>A hipnose nunca deve ser usada para manipular ninguém.</li>
 <li>Deve ser feita por pessoa de confiança e boa índole.</li>
 <li>O objetivo deve ser sempre a cura, o esclarecimento e o amor.</li>
-<li>Deus e os bons espíritos devem ser invocados antes de qualquer sessão.</li>
-</ul>
----
+<li>Deus e os bons espíritos devem ser invocados antes de qualquer sessão.</li></ul>
+<hr>
 <h2>Meditação, Oração e Elevação Espiritual</h2>
 <p>
 A oração é o maior poder que existe. Quando oramos, entramos em contato direto com Deus. Quando meditamos, aprendemos a ouvir a resposta.</p>
 
 <p>A meditação não é fugir do mundo. É mergulhar dentro de si mesmo para encontrar a paz que o mundo não pode dar. É limpar a mente das preocupações para que a luz do espírito possa brilhar.</p>
 
-<p>### Diferença entre Oração e Meditação</p>
+<h3>Diferença entre Oração e Meditação</h3>
 
 <ul><li><strong>Oração</strong> — falamos com Deus, pedimos, agradecemos, louvamos.</li>
 <li><strong>Meditação</strong> — escutamos Deus, silenciamos o coração e recebemos inspiração.</li>
 
 <p>Juntas, oração e meditação formam uma escada espiritual. Subimos nela a cada dia, com paciência e constância.</p>
 
-<p>### Benefícios da Meditação Regular</p>
+<h3>Benefícios da Meditação Regular</h3>
 
 <li>Calma interior.</li>
 <li>Melhora da saúde física e emocional.</li>
 <li>Aumento da intuição.</li>
 <li>Maior capacidade de amar e perdoar.</li>
 <li>Aproximação do mundo espiritual.</li>
-<li>Preparação para experiências de desdobramento seguras.</li>
-</ul>
----
+<li>Preparação para experiências de desdobramento seguras.</li></ul>
+<hr>
 <h2>O Desdobramento e a Saída do Corpo</h2>
 <p>
 O <strong>desdobramento</strong>, ou saída do corpo, é uma experiência em que o espírito, envolvido pelo perispírito, se desprende temporariamente do corpo físico. A pessoa pode ter a sensação de flutuar, de ver o próprio corpo de fora, de viajar por lugares distantes ou de encontrar seres espirituais.</p>
@@ -475,9 +886,9 @@ O <strong>desdobramento</strong>, ou saída do corpo, é uma experiência em que
 
 <blockquote>"Durante o sono, o espírito vive outra vida, em outro mundo, ao lado daqueles que ama." — Allan Kardec</blockquote>
 
-<p>### Como Desenvolver o Desdobramento Consciente</p>
+<h3>Como Desenvolver o Desdobramento Consciente</h3>
 
-<ol><ul><li><strong>Vontade sincera de evoluir</strong> — nunca por curiosidade ou vaidade.</li>
+<ul><li><strong>Vontade sincera de evoluir</strong> — nunca por curiosidade ou vaidade.</li>
 <li><strong>Vida moral elevada</strong> — respeito, amor, honestidade.</li>
 <li><strong>Oração diária</strong> — pedir proteção a Deus e aos bons espíritos.</li>
 <li><strong>Meditação profunda</strong> — relaxar o corpo e acalmar a mente.</li>
@@ -491,9 +902,8 @@ O <strong>desdobramento</strong>, ou saída do corpo, é uma experiência em que
 <li>Pedir a Deus que nos proteja.</li>
 <li>Chamar Jesus como nosso guia.</li>
 <li>Pedir aos anjos e espíritos amigos que nos acompanhem.</li>
-<li>Manter o pensamento no bem, na luz e no amor.</li>
-</ul>
----
+<li>Manter o pensamento no bem, na luz e no amor.</li></ul>
+<hr>
 <h2>Sonhos e Suas Mensagens</h2>
 <p>
 Os sonhos não são apenas fantasias da mente. Muitas vezes, são verdadeiras viagens do espírito durante o sono. Enquanto dormimos, nosso perispírito se liberta parcialmente e pode:</p>
@@ -504,7 +914,7 @@ Os sonhos não são apenas fantasias da mente. Muitas vezes, são verdadeiras vi
 <li>Relembrar situações de vidas passadas.</li>
 <li>Receber orientação de espíritos superiores.</li>
 
-<p>### Como Interpretar os Sonhos</p>
+<h3>Como Interpretar os Sonhos</h3>
 
 <p>Nem todo sonho tem um significado profundo. Alguns são apenas o cérebro organizando o dia. Mas quando um sonho é muito vivo, emocionante ou repetido, merece atenção.</p>
 
@@ -517,50 +927,48 @@ Os sonhos não são apenas fantasias da mente. Muitas vezes, são verdadeiras vi
 
 <p>Sonhos de paz geralmente vêm de espíritos bons. Sonhos perturbadores podem refletir nossos medos, mas também podem ser alertas espirituais. Em caso de dúvida, ore peça a Deus esclarecimento.</p>
 
-<p>### O Sonho Lúcido</p>
+<h3>O Sonho Lúcido</h3>
 
 <p>O sonho lúcido é aquele em que a pessoa percebe que está sonhando e pode até dirigir o sonho. Esse estado é uma porta de entrada para o desdobramento consciente. Com prática, é possível usar os sonhos lúcidos para:</p>
 
 <li>Encontrar respostas para problemas.</li>
 <li>Treinar a consciência.</li>
 <li>Receber orientação espiritual.</li>
-<li>Vivenciar a liberdade do espírito.</li>
-</ul>
----
+<li>Vivenciar a liberdade do espírito.</li></ul>
+<hr>
 <h2>A Cura pelas Mãos do Espírito</h2>
 <p>
 A cura espiritual é um dos maiores dons que podemos desenvolver. Não se trata de substituir a medicina, mas de complementá-la. A ciência cuida do corpo físico; o espírito cuida da energia vital e das causas profundas da doença.</p>
 
 <p>Muitas doenças têm origem em desequilíbrios emocionais, mágoas antigas, pensamentos negativos ou dívidas espirituais. Quando trabalhamos a alma, muitas vezes o corpo responde com melhora.</p>
 
-<p>### Formas de Cura Espiritual</p>
+<h3>Formas de Cura Espiritual</h3>
 
 <ul><li><strong>Passe magnético</strong> — transferência de energia vital através das mãos.</li>
 <li><strong>Oração de cura</strong> — pedido de auxílio aos espíritos superiores.</li>
 <li><strong>Fluidificação da água</strong> — energização da água com pensamentos positivos.</li>
 <li><strong>Harmonização do perispírito</strong> — através da meditação e do perdão.</li>
-<li><strong>Estudo e reforma íntima</strong> — mudança de pensamentos e hábitos negativos.</li>
-</ul>
+<li><strong>Estudo e reforma íntima</strong> — mudança de pensamentos e hábitos negativos.</li></ul>
 <blockquote>"A caridade começa em casa." — Doutrina Espírita</blockquote>
 
 <p>A cura verdadeira começa quando reconhecemos que somos responsáveis por nossos pensamentos, palavras e atos. Quando mudamos por dentro, o corpo agradece.</p>
 
-<p>---</p>
+<hr>
 <h2>O Passe e o Tratamento Espiritual</h2>
 <p>
 O <strong>passe</strong> é uma das práticas mais conhecidas do Espiritismo. Consiste na imposição das mãos sobre a pessoa, com o objetivo de transmitir energias curativas do plano espiritual. O passe não cura sozinho: ele ajuda a reorganizar as energias do corpo espiritual, facilitando a ação da medicina, da oração e da própria vontade de melhorar.</p>
 
-<p>### Como Funciona o Passe</p>
+<h3>Como Funciona o Passe</h3>
 
 <p>O passe trabalha com as energias do perispírito. Quando uma pessoa doente recebe um passe, o fluido vital que passa pelas mãos do magnetizador ajuda a limpar bloqueios, acalmar emoções e fortalecer a conexão com o plano espiritual.</p>
 
-<p>### Tipos de Passe</p>
+<h3>Tipos de Passe</h3>
 
 <ul><li><strong>Passe magnético</strong> — usa as energias naturais do corpo do magnetizador.</li>
 <li><strong>Passe espiritual</strong> — conta com a ajuda de espíritos desencarnados, que atuam através das mãos do magnetizador.</li>
 <li><strong>Passe à distância</strong> — oração e imposição mental, sem contato físico.</li>
 
-<p>### O Passe em Casa</p>
+<h3>O Passe em Casa</h3>
 
 <p>Você pode fazer um auto-passe:</p>
 
@@ -568,16 +976,15 @@ O <strong>passe</strong> é uma das práticas mais conhecidas do Espiritismo. Co
 <li>Ore pedindo a presença de Jesus e dos bons espíritos.</li>
 <li>Passe as mãos sobre o próprio corpo, da cabeça aos pés.</li>
 <li>Mentalize luz e saúde.</li>
-<li>Agradeça a Deus.</li>
-</ul></ol>
+<li>Agradeça a Deus.</li></ul>
 O auto-passe é uma prática simples e poderosa de cuidado espiritual.
 
-<p>---</p>
+<hr>
 <h2>A Obsessão e o Desobsessão</h2>
 <p>
 A obsessão é uma influência negativa de espíritos que ainda não evoluíram o suficiente. Esses espíritos, presos em suas paixões e mágoas, podem se aproximar de pessoas encarnadas que vibram em frequências semelhantes. A pessoa obsessora não é necessariamente um "demônio", mas um espírito sofredor que precisa de ajuda.</p>
 
-<p>### Causas da Obsessão</p>
+<h3>Causas da Obsessão</h3>
 
 <ul><li>Mágoas antigas de vidas passadas.</li>
 <li>Vícios compartilhados entre encarnados e desencarnados.</li>
@@ -585,7 +992,7 @@ A obsessão é uma influência negativa de espíritos que ainda não evoluíram 
 <li>Práticas espirituais desprotegidas.</li>
 <li>Curiosidade pelo ocultismo sem conhecimento adequado.</li>
 
-<p>### Sintomas Comuns</p>
+<h3>Sintomas Comuns</h3>
 
 <li>Mudanças bruscas de humor.</li>
 <li>Pensamentos ruins que parecem não ser seus.</li>
@@ -594,20 +1001,19 @@ A obsessão é uma influência negativa de espíritos que ainda não evoluíram 
 <li>Sensação de opressão no peito.</li>
 <li>Impulsos para fazer o mal ou se magoar.</li>
 
-<p>### Como se Proteger</p>
+<h3>Como se Proteger</h3>
 
 <li>Oração diária.</li>
 <li>Estudo da Doutrina Espírita.</li>
 <li>Vida moral equilibrada.</li>
 <li>Evitar ambientes e pensamentos negativos.</li>
 <li>Não brincar com práticas espirituais perigosas.</li>
-<li>Buscar ajuda em casa espírita quando necessário.</li>
-</ul>
+<li>Buscar ajuda em casa espírita quando necessário.</li></ul>
 ### O Desobsessão
 
 <p>O desobsessão é o tratamento espiritual para libertar a pessoa da influência negativa. Geralmente é feito em casa espírita, com a ajuda de médiuns e espíritos superiores. O objetivo não é apenas afastar o espírito sofredor, mas também ensiná-lo e ajudá-lo a evoluir.</p>
 
-<p>---</p>
+<hr>
 <h2>O Tempo e o Espaço na Visão Espírita</h2>
 <p>
 No mundo espiritual, o tempo e o espaço não funcionam como aqui. Lá, o pensamento é ação. Queremos uma pessoa e ela aparece. Pensamos em um lugar e já estamos lá. Não há distâncias como as da Terra.</p>
@@ -616,7 +1022,7 @@ No mundo espiritual, o tempo e o espaço não funcionam como aqui. Lá, o pensam
 
 <p>O passado, o presente e o futuro também são percebidos de forma diferente pelos espíritos superiores. Eles veem as consequências de nossas ações como quem vê um rio todo de uma vez, desde a nascente até o mar. Por isso, a preceição é possível, embora nunca seja algo absoluto, pois o livre-arbítrio sempre pode mudar o curso dos acontecimentos.</p>
 
-<p>---</p>
+<hr>
 <h2>A Lei de Causa e Efeito</h2>
 <p>
 Nada acontece por acaso. Tudo o que vivemos hoje é resultado do que plantamos ontem, nesta vida ou em vidas passadas. Essa é a <strong>Lei de Causa e Efeito</strong>, também chamada de lei do retorno.</p>
@@ -627,7 +1033,7 @@ Nada acontece por acaso. Tudo o que vivemos hoje é resultado do que plantamos o
 
 <p>Quando entendemos essa lei, deixamos de nos queixar da vida e começamos a trabalhar nossa reforma íntima. Cada dificuldade é uma oportunidade de crescimento. Cada pessoa difícil é um espelho que nos mostra o que ainda precisamos melhorar.</p>
 
-<p>---</p>
+<hr>
 <h2>O Perdão como Libertação</h2>
 <p>
 O perdão é a chave de muitas curas. Quando não perdoamos, carregamos um peso dentro de nós. Esse peso se transforma em doença, em tristeza, em raiva. Perdoar não significa aprovar o erro do outro. Significa soltar a mágoa para que nossa alma possa respirar.</p>
@@ -636,18 +1042,17 @@ O perdão é a chave de muitas curas. Quando não perdoamos, carregamos um peso 
 
 <p>Perdoar é um ato de amor próprio. Quando perdoamos, não libertamos apenas o outro. Libertamos a nós mesmos.</p>
 
-<p>### Como Praticar o Perdão</p>
+<h3>Como Praticar o Perdão</h3>
 
-<ol><ul><li>Reconheça a mágoa.</li>
+<ul><li>Reconheça a mágoa.</li>
 <li>Entenda que todos erramos.</li>
 <li>Peça a Deus forças para soltar.</li>
 <li>Visualize a pessoa envolvida em luz.</li>
 <li>Deseje a ela paz e evolução.</li>
-<li>Repita quantas vezes forem necessárias.</li>
-</ul></ol>
+<li>Repita quantas vezes forem necessárias.</li></ul>
 O perdão nem sempre vem de uma vez. Às vezes precisamos perdoar todos os dias, até que a ferida cicatrize de verdade.
 
-<p>---</p>
+<hr>
 <h2>A Mediunidade e os Dons do Espírito</h2>
 <p>
 A mediunidade é a faculdade de comunicar-se com o mundo espiritual. Todos nós temos algum grau de mediunidade, embora nem todos a desenvolvam. Existem muitos tipos de mediunidade:</p>
@@ -659,11 +1064,11 @@ A mediunidade é a faculdade de comunicar-se com o mundo espiritual. Todos nós 
 <li><strong>Psicofônica</strong> — incorporação de espíritos para falar.</li>
 <li><strong>Curativa</strong> — transmissão de energias curativas.</li>
 
-<p>### A Mediunidade como Serviço</p>
+<h3>A Mediunidade como Serviço</h3>
 
 <p>A verdadeira mediunidade nunca é vaidade. É serviço. O médium é um canal, um instrumento. Quanto mais humilde e amoroso for, melhor será sua mediunidade.</p>
 
-<p>### O Desenvolvimento Mediúnico</p>
+<h3>O Desenvolvimento Mediúnico</h3>
 
 <p>O desenvolvimento da mediunidade exige:</p>
 
@@ -672,41 +1077,39 @@ A mediunidade é a faculdade de comunicar-se com o mundo espiritual. Todos nós 
 <li>Oração e meditação constantes.</li>
 <li>Orientação de casa espírita.</li>
 <li>Paciência e discernimento.</li>
-<li>Nunca buscar experiências por vaidade.</li>
-</ul>
----
+<li>Nunca buscar experiências por vaidade.</li></ul>
+<hr>
 <h2>Robson Pinheiro e o Desdobramento Espiritual Consciente</h2>
 <p>
 Robson Pinheiro é um médium, escritor e terapeuta brasileiro que se dedica ao estudo e prática do <strong>desdobramento espiritual consciente</strong>. Autor de dezenas de livros psicografados, ele tornou acessível a muitas pessoas a ideia de que podemos, com treinamento e disciplina, sair do corpo físico de forma consciente e atuar no plano espiritual.</p>
 
 <p>Para Pinheiro, o desdobramento não é uma mera curiosidade. É uma ferramenta de trabalho espiritual. Quando a pessoa aprende a desdobrar com consciência, pode participar de tarefas de auxílio a espíritos sofredores, colaborar com colônias espirituais e até mesmo receber ensinamentos diretamente de mentores espirituais.</p>
 
-<p>### Os Três Pilares do Desdobramento Consciente</p>
+<h3>Os Três Pilares do Desdobramento Consciente</h3>
 
 <p>Segundo os ensinamentos veiculados por suas obras, o desdobramento consciente exige três pilares fundamentais:</p>
 
-<ol><ul><li><strong>Disciplina mental</strong> — a mente deve ser treinada para manter a calma e o foco.</li>
+<ul><li><strong>Disciplina mental</strong> — a mente deve ser treinada para manter a calma e o foco.</li>
 <li><strong>Elevação moral</strong> — só se desdobra com segurança quem busca o bem.</li>
-<li><strong>Proteção espiritual</strong> — sempre acompanhado por mentores e guias superiores.</li>
-</ul></ol>
+<li><strong>Proteção espiritual</strong> — sempre acompanhado por mentores e guias superiores.</li></ul>
 Sem esses pilares, a experiência pode se tornar confusa ou perigosa. Por isso, Pinheiro insiste na importância do estudo sério, da oração e da reforma íntima.
 
-<p>### O Desdobramento como Serviço</p>
+<h3>O Desdobramento como Serviço</h3>
 
 <p>Diferente de quem busca a saída do corpo por mero espanto ou vaidade, o trabalho de Robson Pinheiro coloca o desdobramento como uma forma de serviço. Os desencarnados também precisam de ajuda. Muitos estão perdidos, sofrendo, presos em seus remorsos. Os médiuns desdobrados podem, sob orientação espiritual, auxiliar nesse trabalho de resgate.</p>
 
 <blockquote>"O desdobramento espiritual consciente é uma das maiores ferramentas de serviço à humanidade." — Robson Pinheiro</blockquote>
 
-<p>### Os Guardiões da Humanidade</p>
+<h3>Os Guardiões da Humanidade</h3>
 
 <p>Robson Pinheiro também é idealizador do projeto <strong>Guardiões da Humanidade</strong>, que reúne pessoas dedicadas ao estudo, à prática e ao serviço espiritual. O projeto incentiva a meditação em grupo, o desdobramento consciente e o trabalho de auxílio ao plano espiritual, sempre com foco no amor e na evolução.</p>
 
-<p>---</p>
+<hr>
 <h2>Osmar Barbosa e a Colônia Espiritual Amor e Caridade</h2>
 <p>
 Osmar Barbosa é escritor espírita e psicógrafo de obras que relatam experiências no plano espiritual, especialmente ligadas ao <strong>Hospital Espiritual Amor e Caridade</strong> e às <strong>Colônias Espirituais</strong>. Suas obras trazem relatos detalhados de como funciona o atendimento a espíritos recém-desencarnados, enfermos e sofredores.</p>
 
-<p>### O Hospital Espiritual</p>
+<h3>O Hospital Espiritual</h3>
 
 <p>Segundo as psicografias de Osmar Barbosa, o Hospital Espiritual Amor e Caridade é uma colônia espiritual dedicada ao tratamento de almas que chegam ao plano espiritual em estado de sofrimento. Lá, médicos e enfermeiros espirituais trabalham incansavelmente para acolher, curar e orientar esses espíritos.</p>
 
@@ -715,28 +1118,27 @@ Osmar Barbosa é escritor espírita e psicógrafo de obras que relatam experiên
 <ul><li><strong>Cura das emoções</strong> — mágoas, medos e rancores.</li>
 <li><strong>Esclarecimento</strong> — mostrar ao espírito que a morte física não é o fim.</li>
 <li><strong>Reforma íntima</strong> — ajudar o espírito a reconhecer seus erros e desejar mudar.</li>
-<li><strong>Preparação para nova vida</strong> — orientar o espírito para seu próximo passo evolutivo.</li>
-</ul>
+<li><strong>Preparação para nova vida</strong> — orientar o espírito para seu próximo passo evolutivo.</li></ul>
 ### Os Obreiros do Bem
 
 <p>Osmar Barbosa fala muito sobre os <strong>obreiros do bem</strong>, espíritos encarnados e desencarnados que trabalham juntos em missões de auxílio. Esses obreiros não são seres perfeitos, mas pessoas que decidiram colocar o amor em ação.</p>
 
 <p>Todo mundo pode ser um obreiro do bem. Basta querer ajudar, orar, trabalhar com amor e manter bons pensamentos. Muitas vezes, durante o sono, nosso espírito participa desses trabalhos sem que a consciência física se lembre no dia seguinte.</p>
 
-<p>### O Trabalho no Umbral</p>
+<h3>O Trabalho no Umbral</h3>
 
 <p>Barbosa também relata o trabalho no <strong>umbral</strong>, aquela região do plano espiritual onde ficam espíritos ainda presos às paixões da Terra. Lá, equipes espirituais trabalham para resgatar essas almas e levá-las para lugares de luz e recuperação.</p>
 
 <p>Esse trabalho é árduo e perigoso, por isso só é realizado por espíritos preparados e protegidos. Os médiuns encarnados que colaboram nessas missões precisam de muita fé, disciplina e amor.</p>
 
-<p>---</p>
+<hr>
 <h2>Chico Xavier, o Apóstolo da Caridade</h2>
 
 <strong>Chico Xavier</strong> é, sem dúvida, o maior médium da história do Espiritismo no Brasil. Nascido em Pedro Leopoldo, Minas Gerais, em 1910, Chico psicografou mais de 400 livros ao longo de sua vida. Sua mediunidade era tão pura e prodigiosa que tornou a Doutrina Espírita conhecida em todo o país e no mundo.
 
 <p>Mas Chico Xavier não foi grande apenas pela quantidade de obras. Foi grande sobretudo pela <strong>qualidade do seu amor</strong>. Ele viveu com extrema humildade, trabalhando como balconista em uma loja de tecidos em Uberaba, enquanto à noite atendia a dezenas de pessoas que buscavam conforto espiritual. Nunca aceitou dinheiro por suas psicografias. Tudo o que ganhava com os livros era doado a obras de caridade.</p>
 
-<p>### A Simplicidade de Chico</p>
+<h3>A Simplicidade de Chico</h3>
 
 <p>Chico nos ensinou que a mediunidade verdadeira é serviço. Ele dizia que não era dono das palavras que escrevia, mas apenas um instrumento. Seus principais guias espirituais foram Emmanuel, André Luiz e Bezerra de Menezes, entre outros.</p>
 
@@ -746,26 +1148,25 @@ Osmar Barbosa é escritor espírita e psicógrafo de obras que relatam experiên
 <li><strong>Ave, Cristo!</strong> — relatos da vida de Jesus.</li>
 <li><strong>Mecanismos da Mediunidade</strong> — explicações sobre como funciona a mediunidade.</li>
 <li><strong>Pão Nosso</strong> — lições de humildade e espiritualidade.</li>
-<li><strong>Vida e Sexo</strong> — orientações sobre relacionamentos e moral.</li>
-</ul>
+<li><strong>Vida e Sexo</strong> — orientações sobre relacionamentos e moral.</li></ul>
 ### A Lição de Amor
 
 <p>A maior lição de Chico Xavier é que não adianta ter dons mediúnicos se não tivermos amor. Ele curava almas com sua presença, com sua paciência, com seu jeito simples de ser. Para Chico, a caridade era o caminho.</p>
 
 <blockquote>"Quando a gente aprende a amar, a gente aprende a viver." — Chico Xavier</blockquote>
 
-<p>### Chico e a Cura</p>
+<h3>Chico e a Cura</h3>
 
 <p>Chico também ficou conhecido por suas orientações de cura. Ele não fazia milagres com as próprias mãos, mas transmitia mensagens de espíritos superiores que indicavam tratamentos, conselhos e conforto espiritual. Ele sempre recomendava a união da medicina com a prece, do tratamento físico com o tratamento da alma.</p>
 
-<p>---</p>
+<hr>
 <h2>Divaldo Pereira Franco e a Psicografia da Educação</h2>
 
 <strong>Divaldo Pereira Franco</strong> foi um dos maiores médiuns e oradores do Brasil. Nascido em Feira de Santana, na Bahia, em 1927, Divaldo dedicou sua vida ao estudo e divulgação do Espiritismo. Sua eloquência e profundidade doutrinária tocaram milhões de pessoas.
 
 <p>Divaldo psicografou centenas de livros através de diversos espíritos, mas ficou especialmente conhecido pelas obras ditadas por <strong>Joanna de Ângelis</strong>. Juntos, eles criaram uma vasta biblioteca espírita que aborda psicologia, educação, saúde, espiritualidade e reforma íntima.</p>
 
-<p>### A Educação pelo Amor</p>
+<h3>A Educação pelo Amor</h3>
 
 <p>Divaldo acreditava que a verdadeira educação começava no amor. Não apenas nas escolas, mas dentro de casa. Pais, mães, avós e educadores têm a responsabilidade de ensinar, pelo exemplo, valores como respeito, caridade, honestidade e perdão.</p>
 
@@ -776,26 +1177,25 @@ Osmar Barbosa é escritor espírita e psicógrafo de obras que relatam experiên
 <li>A necessidade da reforma íntima.</li>
 <li>O respeito ao próximo.</li>
 <li>A superação dos vícios.</li>
-<li>A alegria de servir.</li>
-</ul>
+<li>A alegria de servir.</li></ul>
 ### A Alegria de Servir
 
 <p>Divaldo costumava dizer que o trabalho espiritual não deve ser triste. Deus não quer rostos longos, mas corações alegres. Servir com alegria é uma forma de agradecer à vida e de irradiar luz para quem está ao nosso redor.</p>
 
 <blockquote>"A alegria de viver é a melhor maneira de agradecer a Deus a vida." — Divaldo Pereira Franco</blockquote>
 
-<p>### Divaldo e o Tratamento Espiritual</p>
+<h3>Divaldo e o Tratamento Espiritual</h3>
 
 <p>Divaldo também coordenou, durante décadas, o trabalho do <strong>Caminho da Redenção</strong>, em Salvador, onde eram realizados atendimentos espirituais, passes, tratamentos e estudos. Ele enfatizava que a cura verdadeira vem quando a pessoa muda de dentro para fora.</p>
 
-<p>---</p>
+<hr>
 <h2>Joanna de Ângelis e as Obras de Ivone do Amaral Pereira</h2>
 
 <strong>Ivone do Amaral Pereira</strong> foi uma das mais importantes psicógrafas brasileiras. Por mais de quarenta anos, ela recebeu as mensagens do espírito <strong>Joanna de Ângelis</strong>, produzindo uma obra vasta e profunda que aborda psicologia, espiritualidade, saúde e comportamento humano.
 
 <p>As obras de Joanna de Ângelis, psicografadas por Ivone, são conhecidas pela clareza, pela profundidade psicológica e pelo apelo à reforma íntima. Elas não falam apenas de vida espiritual, mas de como viver melhor na Terra.</p>
 
-<p>### Temas Principais</p>
+<h3>Temas Principais</h3>
 
 <p>Entre os principais temas abordados pelas obras de Joanna de Ângelis, estão:</p>
 
@@ -804,28 +1204,27 @@ Osmar Barbosa é escritor espírita e psicógrafo de obras que relatam experiên
 <li><strong>Cura espiritual</strong> — a doença como expressão de conflitos da alma.</li>
 <li><strong>Psicologia espírita</strong> — entendimento das emoções e do comportamento humano.</li>
 <li><strong>Vida familiar</strong> — relacionamentos construídos no amor e no respeito.</li>
-<li><strong>Educação</strong> — formar crianças e jovens com valores espirituais.</li>
-</ul>
+<li><strong>Educação</strong> — formar crianças e jovens com valores espirituais.</li></ul>
 ### O Estilo de Joanna
 
 <p>As mensagens de Joanna de Ângelis são diretas, mas sempre amorosas. Ela não teme apontar nossos erros, mas o faz para que possamos corrigir o caminho. Sua obra é um convite constante ao autoconhecimento e à transformação.</p>
 
 <blockquote>"Não basta saber. É preciso fazer." — Joanna de Ângelis</blockquote>
 
-<p>### Ivone do Amaral Pereira</p>
+<h3>Ivone do Amaral Pereira</h3>
 
 <p>Ivone foi uma mulher de fé inabalável. Por décadas, dedicou-se ao trabalho mediúnico com disciplina, humildade e amor. Sua contribuição para o Espiritismo brasileiro é imensa. Sem seu trabalho, muitas das obras mais lidas da atualidade não existiriam.</p>
 
-<p>### A Importância para a Cura e a Expansão da Consciência</p>
+<h3>A Importância para a Cura e a Expansão da Consciência</h3>
 
 <p>As obras de Joanna de Ângelis nos ajudam a entender que a cura começa no reconhecimento de nossas dores interiores. Muitas vezes, o que chamamos de doença física é o grito de uma alma ferida. Ao trabalharmos nossos conflitos emocionais, espirituais e morais, abrimos espaço para que a luz divina nos cure.</p>
 
-<p>---</p>
+<hr>
 <h2>A Cidade dos Espíritos e os Guardiões da Humanidade</h2>
 <p>
 A obra <strong>Cidade dos Espíritos</strong>, psicografada por Robson Pinheiro, descreve uma cidade espiritual onde espíritos trabalham, estudam, se tratam e se preparam para novas encarnações. Essa cidade não é um lugar de descanso eterno, mas um centro de atividades espirituais.</p>
 
-<p>### Como é a Cidade dos Espíritos</p>
+<h3>Como é a Cidade dos Espíritos</h3>
 
 <p>De acordo com a obra, a cidade espiritual possui:</p>
 
@@ -833,22 +1232,21 @@ A obra <strong>Cidade dos Espíritos</strong>, psicografada por Robson Pinheiro,
 <li><strong>Escolas</strong> onde os espíritos aprendem e se instruem.</li>
 <li><strong>Centros de trabalho</strong> para missões de auxílio.</li>
 <li><strong>Lares</strong> onde famílias espirituais se reencontram.</li>
-<li><strong>Templos</strong> de oração e meditação.</li>
-</ul>
+<li><strong>Templos</strong> de oração e meditação.</li></ul>
 Tudo na cidade é regido pelo amor, pela disciplina e pelo trabalho. Não há espaço para ociosidade ou vaidade. Cada espírito contribui conforme suas forças e evolução.
 
-<p>### Os Guardiões</p>
+<h3>Os Guardiões</h3>
 
 <p>Os <strong>Guardiões da Humanidade</strong> seriam espíritos altamente evoluídos que acompanham a Terra e sua humanidade. Eles trabalham para proteger, orientar e impulsionar a evolução do planeta e de seus habitantes.</p>
 
 <p>Esses guardiões não interferem no livre-arbítrio humano, mas atuam nos bastidores, enviando inspirações, sustentando trabalhadores do bem e amparando os que sofrem. Cada pessoa pode colaborar com esse trabalho ao viver com amor, verdade e caridade.</p>
 
-<p>---</p>
+<hr>
 <h2>O Umbral e o Trabalho da Luz</h2>
 <p>
 O <strong>umbral</strong> é uma região do plano espiritual próxima à Terra, onde ficam espíritos que ainda não conseguiram se elevar. É um lugar de sombras, não porque Deus os condene, mas porque esses espíritos ainda carregam dentro de si a escuridão de seus próprios pensamentos e atos.</p>
 
-<p>### Por que os Espíritos Ficam no Umbral?</p>
+<h3>Por que os Espíritos Ficam no Umbral?</h3>
 
 <p>Um espírito pode ficar preso no umbral por vários motivos:</p>
 
@@ -856,43 +1254,41 @@ O <strong>umbral</strong> é uma região do plano espiritual próxima à Terra, 
 <li>Mágoas, rancores e desejos de vingança.</li>
 <li>Materialismo excessivo — dificuldade de aceitar a vida espiritual.</li>
 <li>Medo do julgamento ou da punição.</li>
-<li>Apego a pessoas ou bens materiais.</li>
-</ul>
+<li>Apego a pessoas ou bens materiais.</li></ul>
 ### O Trabalho de Resgate
 
 <p>O trabalho da luz no umbral consiste em aproximar esses espíritos sofredores de colônias espirituais, hospitais e escolas onde possam se recuperar. Esse trabalho é feito com paciência, amor e respeito ao livre-arbítrio. Ninguém é obrigado a aceitar a ajuda.</p>
 
 <p>Os médiuns encarnados podem colaborar com esse trabalho através da oração, do passe, da reforma íntima e, quando desenvolvido, do desdobramento consciente. Cada pensamento de amor que enviamos ao umbral é uma luz que ilumina um caminho.</p>
 
-<p>### O Papel da Prece</p>
+<h3>O Papel da Prece</h3>
 
 <p>A prece é uma das ferramentas mais poderosas para auxiliar os espíritos do umbral. Quando oramos por um ente querido falecido, nossas palavras de amor chegam até ele como água fresca em terra seca. Muitas vezes, é a prece da família que permite que o espírito encontre forças para se levantar.</p>
 
-<p>---</p>
+<hr>
 <h2>Como Aplicar no Dia a Dia</h2>
 <p>
 A expansão da consciência não serve apenas para ter experiências extraordinárias. Ela deve nos tornar pessoas melhores, mais amorosas, mais pacientes, mais úteis.</p>
 
-<p>### Práticas Diárias</p>
+<h3>Práticas Diárias</h3>
 
-<ol><ul><li><strong>Acorde com uma oração</strong> — agradeça por mais um dia.</li>
+<ul><li><strong>Acorde com uma oração</strong> — agradeça por mais um dia.</li>
 <li><strong>Leia uma página de livro espírita</strong> — alimente a alma.</li>
 <li><strong>Medite dez minutos</strong> — silencie a mente.</li>
 <li><strong>Pratique o bem</strong> — ajude alguém sem esperar nada em troca.</li>
 <li><strong>Perdoe</strong> — solte mágoas que só pesam no seu coração.</li>
-<li><strong>Durma com gratidão</strong> — relembre o que de bom aconteceu.</li>
-</ul></ol>
+<li><strong>Durma com gratidão</strong> — relembre o que de bom aconteceu.</li></ul>
 ### Reforma Íntima
 
 <p>A verdadeira expansão da consciência acontece quando mudamos nossos vícios, preconceitos e egoísmos. Não adianta desdobrar o perispírito se, ao voltar ao corpo, continuamos irritados, invejosos ou mentirosos.</p>
 
 <p>A evolução espiritual é feita de pequenas vitórias todos os dias.</p>
 
-<p>### O Evangelho no Lar</p>
+<h3>O Evangelho no Lar</h3>
 
 <p>Uma prática poderosa é a leitura do Evangelho em família. Basta reunir os familiares, ler um trecho dos Evangelhos, comentar e orar juntos. Essa prática fortalece os laços afetivos, protege o lar e alimenta a fé de todos.</p>
 
-<p>---</p>
+<hr>
 <h2>Orações e Exercícios Práticos</h2>
 <p>
 ### Oração de Proteção</p>
@@ -905,7 +1301,7 @@ A expansão da consciência não serve apenas para ter experiências extraordin�
 <blockquote>Que eu seja instrumento do Teu amor.  </blockquote>
 <blockquote>Assim seja.</blockquote>
 
-<p>### Oração de Agradecimento</p>
+<h3>Oração de Agradecimento</h3>
 
 <blockquote>Senhor, agradeço por esta vida,  </blockquote>
 <blockquote>por minha família, meus amigos e minhas provações.  </blockquote>
@@ -914,16 +1310,16 @@ A expansão da consciência não serve apenas para ter experiências extraordin�
 <blockquote>Que eu saiba aproveitar tudo com sabedoria.  </blockquote>
 <blockquote>Assim seja.</blockquote>
 
-<p>### Oração de Cura</p>
+<h3>Oração de Cura</h3>
 
 <blockquote>Senhor, envia Teus fluidos curativos sobre este corpo e esta alma.  </blockquote>
 <blockquote>Que os médicos e espíritos amigos trabalhem juntos pela minha recuperação.  </blockquote>
 <blockquote>Dou graças pela saúde que está sendo restabelecida.  </blockquote>
 <blockquote>Assim seja.</blockquote>
 
-<p>### Exercício de Relaxamento</p>
+<h3>Exercício de Relaxamento</h3>
 
-<ol><ul><li>Sente-se ou deite-se confortavelmente.</li>
+<ul><li>Sente-se ou deite-se confortavelmente.</li>
 <li>Feche os olhos e respire lentamente.</li>
 <li>Imagine uma luz branca descendo sobre a sua cabeça.</li>
 <li>Essa luz desce pelo pescoço, pelos ombros, pelos braços.</li>
@@ -931,7 +1327,7 @@ A expansão da consciência não serve apenas para ter experiências extraordin�
 <li>Sinta todo o seu corpo relaxado e protegido.</li>
 <li>Fique assim por alguns minutos, em paz.</li>
 
-<p>### Exercício de Expansão da Consciência</p>
+<h3>Exercício de Expansão da Consciência</h3>
 
 <li>Após o relaxamento, imagine-se envolvido por uma esfera de luz dourada.</li>
 <li>Sinta que essa luz é amor puro.</li>
@@ -940,62 +1336,60 @@ A expansão da consciência não serve apenas para ter experiências extraordin�
 <li>Sinta que vocês estão unidos pelo amor, além do tempo e do espaço.</li>
 <li>Agradeça a Deus pela experiência.</li>
 
-<p>### Exercício de Perdão</p>
+<h3>Exercício de Perdão</h3>
 
 <li>Sente-se em silêncio e respire fundo.</li>
 <li>Traga à mente alguém que você precisa perdoar.</li>
 <li>Visualize essa pessoa na sua frente.</li>
 <li>Diga mentalmente: "Eu te perdoo. Eu te liberto. Eu me liberto."</li>
 <li>Envie luz e paz para essa pessoa.</li>
-<li>Agradeça a Deus pela libertação.</li>
-</ul></ol>
----
+<li>Agradeça a Deus pela libertação.</li></ul>
+<hr>
 <h2>A Missão do Brasil na Nova Era</h2>
 <p>
 O Brasil não foi escolhido por acaso para ser a Pátria do Evangelho. Sua missão vai muito além de abrigar a maior comunidade espírita do planeta. O Brasil deve ser o celeiro de uma nova civilização, baseada no amor, na fraternidade e no respeito à vida em todas as suas formas.</p>
 
-<p>### A Nova Era do Amor</p>
+<h3>A Nova Era do Amor</h3>
 
 <p>Muitas tradições espirituais falam de uma grande transformação planetária. Uma era em que o ódio, a violência e o egoísmo darão lugar à compreensão, à paz e à solidariedade. Essa transição não acontece da noite para o dia, nem por decreto divino. Ela acontece através do trabalho de cada um de nós.</p>
 
 <p>O Brasil tem um papel especial nesse processo. Somos uma nação jovem, miscigenada, acolhedora e profundamente espiritual. Nossa alma coletiva carrega a semente de uma nova forma de conviver. Mas para que essa semente germine, precisamos cuidar dela com responsabilidade.</p>
 
-<p>### A Missão de cada Brasileiro</p>
+<h3>A Missão de cada Brasileiro</h3>
 
 <p>A missão do Brasil não pertence apenas aos políticos, religiosos ou líderes espirituais. Pertence a cada cidadão. Cada pessoa que escolhe praticar o bem, perdoar, ajudar o próximo e cuidar da natureza está cumprindo sua parte na grande missão nacional.</p>
 
 <p>Somos todos construtores dessa nova era. Quando um brasileiro oferece um passe, doa um alimento, ensina uma criança, acolhe um estrangeiro ou simplesmente ora pela paz, ele está enviando uma onda de luz que atravessa fronteiras.</p>
 
-<p>### Os Pilares da Missão Brasileira</p>
+<h3>Os Pilares da Missão Brasileira</h3>
 
 <p>A missão do Brasil na nova era se sustenta em alguns pilares fundamentais:</p>
 
-<ol><ul><li><strong>A caridade como lei de vida</strong> — não apenas a doação material, mas o amor em ação.</li>
+<ul><li><strong>A caridade como lei de vida</strong> — não apenas a doação material, mas o amor em ação.</li>
 <li><strong>A fé raciocinada</strong> — espiritualidade que respeita a inteligência e a ciência.</li>
 <li><strong>A fraternidade entre os povos</strong> — acolhimento de todas as raças, culturas e crenças.</li>
 <li><strong>A proteção da natureza</strong> — respeito à Amazônia, aos rios, aos animais e à terra.</li>
 <li><strong>A educação moral</strong> — formar crianças e jovens com valores espirituais.</li>
-<li><strong>A reforma íntima</strong> — cada um transformando a si mesmo para transformar o mundo.</li>
-</ul></ol>
+<li><strong>A reforma íntima</strong> — cada um transformando a si mesmo para transformar o mundo.</li></ul>
 ### O Brasil como Farol
 
 <p>Imagine o Brasil como um farol no meio do oceano. Suas luzes são as inúmeras casas espíritas, as obras de caridade, os médiuns, os estudiosos, os voluntários e todos os que, no dia a dia, praticam o bem. Quando essas luzes se unem, elas podem iluminar o mundo inteiro.</p>
 
 <p>Mas um farol só brilha se for alimentado. Precisamos manter acesa a chama do amor, mesmo diante das dificuldades. Não podemos deixar que o desânimo, a corrupção, a violência ou o materialismo apaguem essa luz.</p>
 
-<p>### O Papel da Juventude Brasileira</p>
+<h3>O Papel da Juventude Brasileira</h3>
 
 <p>A juventude tem um papel decisivo na missão do Brasil. São os jovens que herdarão o país e o planeta. Se formados com amor, conhecimento e espiritualidade, eles poderão construir uma sociedade muito melhor do que a que receberam.</p>
 
 <p>Os jovens brasileiros precisam conhecer a Doutrina Espírita, a história de seus médiuns e a importância de sua missão. Precisam ser inspirados a servir, a estudar e a amar. O futuro do Brasil e do mundo depende, em grande parte, deles.</p>
 
-<p>### O Brasil e a Paz Mundial</p>
+<h3>O Brasil e a Paz Mundial</h3>
 
 <p>O Brasil é chamado a ser um exemplo de paz. Nossa história não tem guerras de conquista como outras nações. Nossa força deve estar no diálogo, na mediação, no acolhimento. Em um mundo dividido por conflitos, o Brasil pode mostrar que é possível conviver em harmonia.</p>
 
 <p>Essa paz começa dentro de cada um. Não podemos falar de paz mundial se vivemos em guerra com nossos familiares, vizinhos ou colegas. A paz se constrói em casa, na escola, no trabalho, nas ruas.</p>
 
-<p>### A Vitória do Amor</p>
+<h3>A Vitória do Amor</h3>
 
 <p>A missão do Brasil na nova era é, em última instância, a vitória do amor sobre o egoísmo. É provar que uma nação pode ser construída sobre a fraternidade, a justiça e a espiritualidade. Não será fácil, mas é possível.</p>
 
@@ -1005,7 +1399,7 @@ O Brasil não foi escolhido por acaso para ser a Pátria do Evangelho. Sua miss�
 
 <p>Que possamos honrar essa missão com nossas vidas.</p>
 
-<p>---</p>
+<hr>
 <h2>Conclusão</h2>
 <p>
 A expansão da consciência é um convite à alma para despertar. Não precisamos de aparelhos complicados nem de fórmulas difíceis. Precisamos de vontade sincera, fé em Deus, amor ao próximo e perseverança no bem.</p>
@@ -1051,15 +1445,48 @@ A expansão da consciência é um convite à alma para despertar. Não precisamo
 <li><strong>Reforma íntima</strong></li>
 <li><strong>Robson Pinheiro</strong></li>
 <li><strong>Sonhos</strong></li>
-<li><strong>Umbral</strong></li>
-</ul>
+<li><strong>Umbral</strong></li></ul>
+<hr>
+<div class="author-section" id="sobre-o-autor">
+<h2>Sobre o Autor</h2>
+<p><strong>Gerson Fernandes</strong> é um estudante da vida e da espiritualidade. Desde cedo, sentiu que havia algo além do que os olhos podiam ver. Sua busca por respostas o levou aos ensinamentos de Allan Kardec, às obras psicografadas por Chico Xavier, Divaldo Pereira Franco, Robson Pinheiro e tantos outros médiuns que iluminaram o Brasil.</p>
+<p>Gerson acredita que a espiritualidade deve estar presente no dia a dia, na política, na família, no trabalho e nos relacionamentos. Para ele, cada pessoa carrega dentro de si uma centelha divina e tem a responsabilidade de fazer brilhar a luz que Deus lhe deu.</p>
+<p>Com linguagem simples e direta, ele busca compartilhar ideias que ajudem outras pessoas a compreenderem a si mesmas, a superarem suas dores e a se aproximarem do mundo espiritual com amor, respeito e responsabilidade.</p>
+</div>
+
+
 <footer>Livro adaptado na visão espírita a partir do documento CIA-RDP96-00788R001700210016-5.</footer>
-</main>
-<script>
-function toggleMenu(){document.getElementById('menu').classList.toggle('open');document.getElementById('overlay').classList.toggle('show')}
-const headings=document.querySelectorAll('#content h2');
-const toc=document.getElementById('toc');
-headings.forEach((h,i)=>{const id='cap-'+i;h.id=id;const a=document.createElement('a');a.href='#'+id;a.textContent=h.textContent;toc.appendChild(a)});
-</script>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('show');
+        }
+
+        // Generate TOC from h2 headings
+        const headings = document.querySelectorAll('#content h2');
+        const toc = document.getElementById('toc');
+        headings.forEach((h, i) => {
+            const slug = h.textContent.toLowerCase().replace(/[?.,:;!'"()]/g, '').replace(/\s+/g, '-');
+            h.id = slug || ('cap-' + i);
+            const a = document.createElement('a');
+            a.href = '#' + h.id;
+            a.textContent = h.textContent;
+            a.onclick = function() { toggleMenu(); };
+            toc.appendChild(a);
+        });
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('#toc a, .toc-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
